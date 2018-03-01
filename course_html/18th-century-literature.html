@@ -1,0 +1,1548 @@
+
+
+
+
+
+<!DOCTYPE html><html lang="en"
+      class="chekov"><head><script>var a=window.devsite||{};window.devsite=a;a.readyCallbacks=[];window.devsite.readyCallbacks=a.readyCallbacks;a.ready=function(b){a.readyCallbacks.push(b)};window.devsite.ready=a.ready;
+</script><meta charset="utf-8"><meta name="xsrf_token" content="N0pkegXp89y65JBTuYLcWuavbImRRTAuoLWzieq_neA6MTUxOTkxNzc4NTM4MTQyMA" /><link rel="canonical" href="https://developers.google.com/machine-learning/crash-course/18th-century-literature"><link rel="alternate" href="https://developers.google.com/machine-learning/crash-course/18th-century-literature" hreflang="en"><link rel="alternate" href="https://developers.google.com/machine-learning/crash-course/18th-century-literature?hl=es-419" hreflang="es-419"><link rel="alternate" href="https://developers.google.com/machine-learning/crash-course/18th-century-literature?hl=fr" hreflang="fr"><link rel="alternate" href="https://developers.google.com/machine-learning/crash-course/18th-century-literature?hl=ko" hreflang="ko"><link rel="alternate" href="https://developers.google.com/machine-learning/crash-course/18th-century-literature?hl=zh-cn" hreflang="zh-Hans"><link rel="alternate" href="https://developers.google.cn/machine-learning/crash-course/18th-century-literature" hreflang="en-cn"><link rel="alternate" href="https://developers.google.cn/machine-learning/crash-course/18th-century-literature?hl=es-419" hreflang="es-419-cn"><link rel="alternate" href="https://developers.google.cn/machine-learning/crash-course/18th-century-literature?hl=fr" hreflang="fr-cn"><link rel="alternate" href="https://developers.google.cn/machine-learning/crash-course/18th-century-literature?hl=ko" hreflang="ko-cn"><link rel="alternate" href="https://developers.google.cn/machine-learning/crash-course/18th-century-literature?hl=zh-cn" hreflang="zh-Hans-cn"><link rel="alternate" href="https://developers.google.com/machine-learning/crash-course/18th-century-literature" hreflang="x-default"><link rel="shortcut icon" href="https://developers.google.com/_static/9abbcf9aa7/images/favicon.png"><link rel="apple-touch-icon" href="https://developers.google.com/_static/9abbcf9aa7/images/touch-icon.png"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet"
+      href="//fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700|Material+Icons"><link rel="stylesheet"
+        href="https://developers.google.com/_static/9abbcf9aa7/css/devsite-white.css"><link rel="search"
+        type="application/opensearchdescription+xml"
+        title="Google Developers"
+        href="https://developers.google.com/s/opensearch.xml"><script src="https://developers.google.com/_static/9abbcf9aa7/js/jquery-bundle.js"></script><meta property="og:site_name" content="Google Developers"><meta property="og:type" content="website"><meta property="og:url" content="https://developers.google.com/machine-learning/crash-course/18th-century-literature"><meta property="og:locale" content="en"><script>
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script><title>ML Systems in the Real World: Literature &nbsp;|&nbsp; Machine Learning Crash Course
+      &nbsp;|&nbsp; Google Developers</title><meta property="og:title" content="ML Systems in the Real World: Literature &nbsp;|&nbsp; Machine Learning Crash Course
+      &nbsp;|&nbsp; Google Developers"><meta property="og:image"
+          content="https://developers.google.com/machine-learning/crash-course/images/mlcc-hero.png"><meta property="og:image:secure_url"
+          content="https://developers.google.com/machine-learning/crash-course/images/mlcc-hero.png"><meta property="og:image:width"
+          content="1200"><meta property="og:image:height"
+          content="675"></head><body class="
+               devsite-doc-page
+               
+               
+               
+               devsite-header-no-upper-tabs
+               "
+        id="top_of_page"><div class="devsite-wrapper"><div class="devsite-top-section-wrapper
+            "><header class="devsite-top-section nocontent"><div class="devsite-top-logo-row-wrapper-wrapper"><div class="devsite-top-logo-row-wrapper"><div class="devsite-top-logo-row devsite-full-site-width"><button type="button" class="devsite-expand-section-nav devsite-header-icon-button
+                                       button-flat material-icons gc-analytics-event"
+                  data-category="Site-Wide Custom Events" data-label="Hamburger menu"></button><div class="devsite-product-name-wrapper"><span class="devsite-product-name"><ul class="devsite-breadcrumb-list"><li class="devsite-breadcrumb-item"><a href="https://developers.google.com/machine-learning/crash-course/" class="devsite-breadcrumb-link gc-analytics-event"
+       data-category="Site-Wide Custom Events" data-label="Upper Header"
+       data-value="1">
+    
+    
+      
+        Machine Learning Crash Course
+      
+    
+    
+    </a></li></ul></span></div><div class="devsite-header-upper-tabs"></div><form class="devsite-search-form"
+                action="https://developers.google.com/s/results/"
+                method="GET"
+                id="top-search"
+                search-placeholder='Search'><div id="searchbox" class="devsite-searchbox"><input placeholder='Search'
+         
+         type="text"
+         class="devsite-search-field devsite-search-query"
+         name="q"
+         value=""
+         autocomplete="off"
+         
+         aria-label="Search box"><div class="devsite-search-image material-icons"></div></div><input type="hidden"
+       name="p"
+       id="search_project"
+       value="/machine-learning/crash-course/"
+       data-project-name="Machine Learning Crash Course"
+       data-project-path="/machine-learning/crash-course/"
+       data-query-match=""><input type="hidden" class="suggest-project" value="Machine Learning Crash Course" /><div class="suggest-project-metadata" data-home_url="/machine-learning/crash-course/" data-path="/machine-learning/crash-course/" data-name="Machine Learning Crash Course" ></div></form><a class="devsite-header-link devsite-top-button button gc-analytics-event"
+               href="https://developers.google.com/products/"
+               data-category="Site-Wide Custom Events"
+               data-label="Site header link"
+               track-type="navigateTo"
+               track-name="all products"
+               track-metadata-position="nav"><div class="devsite-header-link-label">All Products</div></a><button type="button" class="devsite-search-button devsite-header-icon-button button-flat
+                                       material-icons"></button><a href="https://www.google.com/accounts/ServiceLogin?passive=true&continue=https%3A%2F%2Fdevelopers.google.com%2Fmachine-learning%2Fcrash-course%2F18th-century-literature%3Frefresh%3D1&service=ahsid"
+   class="devsite-user-signin devsite-top-button button gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Sign in button">
+  
+  Sign in
+</a></div></div></div><div class="devsite-collapsible-section"><div class="devsite-header-background devsite-full-site-width"><div class="devsite-doc-set-nav-row devsite-full-site-width"><nav class="devsite-doc-set-nav devsite-nav devsite-overflow-tabs-scroll-wrapper"><ul class="devsite-doc-set-nav-tab-list devsite-overflow-tabs-scroll"><li class="devsite-doc-set-nav-tab-container"><a href="https://developers.google.com/machine-learning/crash-course/"
+         class="
+                devsite-doc-set-nav-tab gc-analytics-event"
+         
+       
+         data-category="Site-Wide Custom Events"
+       
+         data-label="Tab: Overview"
+       >
+        Overview
+      </a></li><li class="devsite-doc-set-nav-tab-container"><a href="https://developers.google.com/machine-learning/crash-course/prereqs-and-prework"
+         class="devsite-doc-set-nav-active
+                devsite-doc-set-nav-tab gc-analytics-event"
+         aria-label="Course, selected"
+       
+         data-category="Site-Wide Custom Events"
+       
+         data-label="Tab: Course"
+       >
+        Course
+      </a></li><li class="devsite-doc-set-nav-tab-container"><a href="https://developers.google.com/machine-learning/crash-course/exercises"
+         class="
+                devsite-doc-set-nav-tab gc-analytics-event"
+         
+       
+         data-category="Site-Wide Custom Events"
+       
+         data-label="Tab: Exercises"
+       >
+        Exercises
+      </a></li><li class="devsite-doc-set-nav-tab-container"><a href="https://developers.google.com/machine-learning/crash-course/glossary"
+         class="
+                devsite-doc-set-nav-tab gc-analytics-event"
+         
+       
+         data-category="Site-Wide Custom Events"
+       
+         data-label="Tab: Glossary"
+       >
+        Glossary
+      </a></li><button type="button" id="devsite-feedback-project"
+          class="devsite-feedback-button devsite-top-button gc-analytics-event"
+          data-category="Site-Wide Custom Events" data-label="Send Feedback Button"
+          track-type="feedback" track-name="sendFeedbackLink" track-metadata-position="header">
+  
+  Send feedback
+  </button></ul></nav></div></div></div></header><script>
+    if (window.jQuery) {
+      $(document).ready(function() {
+        if (window.devsite && window.devsite.search) {
+          
+          window.devsite.search.init('en')
+        }
+      });
+    }
+  </script></div><div id="gc-wrapper"itemscope itemtype="http://schema.org/Article"><input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {&quot;dimension6&quot;: &quot;en&quot;, &quot;dimension4&quot;: &quot;Machine Learning Crash Course&quot;, &quot;dimension5&quot;: &quot;en&quot;, &quot;dimension3&quot;: false, &quot;dimension1&quot;: &quot;Signed out&quot;, &quot;dimension8&quot;: null}, &quot;gaid&quot;: &quot;UA-24532603-1&quot;}"><input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {}, &quot;gaid&quot;: &quot;UA-76465953-5&quot;}"><script>
+      var dataLayer = [{"freeTrialEligibleUser": "False", "userCountry": "JP", "language": {"requested": "en", "served": "en"}, "projectName": "Machine Learning Crash Course", "scriptsafe": null, "signedIn": "False", "internalUser": "False"}];
+    </script>
+
+      
+        <div class="devsite-site-mask"></div>
+        
+  
+
+<nav class="devsite-nav-responsive devsite-nav nocontent" tabindex="0">
+  
+  <div class="devsite-nav-responsive-tabs-panel">
+    
+      
+
+
+
+<nav class="devsite-nav-responsive-tabs devsite-nav">
+  <ul class="devsite-nav-list">
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+    
+      <a 
+           href="https://developers.google.com/machine-learning/crash-course/"
+         
+         class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event
+                "
+         data-category="Site-Wide Custom Events" data-label="Responsive Tab: Overview">
+        Overview
+      </a>
+      
+    
+    </li>
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+    
+      <span class="devsite-nav-responsive-forward devsite-nav-responsive-tab devsite-nav-title
+                   devsite-nav-active gc-analytics-event"
+            data-category="Site-Wide Custom Events" data-label="Responsive Tab: Course"
+            tabindex="0">
+        Course
+      </span>
+    
+    </li>
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+    
+      <a 
+           href="https://developers.google.com/machine-learning/crash-course/exercises"
+         
+         class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event
+                "
+         data-category="Site-Wide Custom Events" data-label="Responsive Tab: Exercises">
+        Exercises
+      </a>
+      
+    
+    </li>
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+    
+      <a 
+           href="https://developers.google.com/machine-learning/crash-course/glossary"
+         
+         class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event
+                "
+         data-category="Site-Wide Custom Events" data-label="Responsive Tab: Glossary">
+        Glossary
+      </a>
+      
+    
+    </li>
+  
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+      <a href="https://developers.google.com/products/"
+         class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+         data-label="Responsive Tab: all_products">
+        All Products
+      </a>
+    </li>
+  
+  </ul>
+</nav>
+
+    
+  </div>
+  
+  
+  <div class="devsite-nav-responsive-sidebar-panel">
+    
+    <div class="devsite-nav-responsive-back" tabindex="0"></div>
+    
+    <nav class="devsite-nav-responsive-sidebar">
+      <ul class="devsite-nav-list devsite-nav-expandable"><li class="devsite-nav-item devsite-nav-item-heading"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Introduction</span></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/prereqs-and-prework" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Prerequisites and Prework</a></li><li class="devsite-nav-item devsite-nav-item-heading"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">ML Concepts</span></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/ml-intro" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Introduction to ML (3 min)</a></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Framing (15 min), click to expand/collapse" role="link">Framing (15 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/framing/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/framing/ml-terminology" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">ML Terminology</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/framing/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Descending into ML (20 min), click to expand/collapse" role="link">Descending into ML (20 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/descending-into-ml/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/descending-into-ml/linear-regression" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Linear Regression</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/descending-into-ml/training-and-loss" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Training and Loss</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/descending-into-ml/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Reducing Loss (60 min), click to expand/collapse" role="link">Reducing Loss (60 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/an-iterative-approach" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">An Iterative Approach</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/gradient-descent" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Gradient Descent</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/learning-rate" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Learning Rate</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/fitter/graph" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Optimizing Learning Rate</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/stochastic-gradient-descent" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Stochastic Gradient Descent</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/playground-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercise</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="First Steps with TF (60 min), click to expand/collapse" role="link">First Steps with TF (60 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/first-steps-with-tensorflow/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/first-steps-with-tensorflow/toolkit" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Toolkit</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/first-steps-with-tensorflow/programming-exercises" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercises</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Generalization (15 min), click to expand/collapse" role="link">Generalization (15 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/generalization/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/generalization/peril-of-overfitting" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Peril of Overfitting</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Training and Test Sets (25 min), click to expand/collapse" role="link">Training and Test Sets (25 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/training-and-test-sets/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/training-and-test-sets/splitting-data" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Splitting Data</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/training-and-test-sets/playground-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Validation (40 min), click to expand/collapse" role="link">Validation (40 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/validation/check-your-intuition" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Intuition</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/validation/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/validation/another-partition" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Another Partition</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/validation/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Representation (65 min), click to expand/collapse" role="link">Representation (65 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/representation/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/representation/feature-engineering" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Feature Engineering</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/representation/qualities-of-good-features" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Qualities of Good Features</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/representation/cleaning-data" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Cleaning Data</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/representation/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Feature Crosses (70 min), click to expand/collapse" role="link">Feature Crosses (70 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/feature-crosses/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/feature-crosses/encoding-nonlinearity" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Encoding Nonlinearity</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/feature-crosses/crossing-one-hot-vectors" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Crossing One-Hot Vectors</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/feature-crosses/playground-exercises" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercises</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/feature-crosses/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/feature-crosses/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Regularization: Simplicity (40 min), click to expand/collapse" role="link">Regularization: Simplicity (40 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/playground-exercise-overcrossing" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercise: Overcrossing?</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/l2-regularization" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">L2 Regularization</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/lambda" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Lambda</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/playground-exercise-examining-l2-regularization" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercise: Examining L2 Regularization</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Logistic Regression (20 min), click to expand/collapse" role="link">Logistic Regression (20 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/logistic-regression/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/logistic-regression/calculating-a-probability" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Calculating a Probability</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/logistic-regression/model-training" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Model Training</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Classification (90 min), click to expand/collapse" role="link">Classification (90 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/thresholding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Thresholding</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/true-false-positive-negative" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">True vs. False; Positive vs. Negative</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/accuracy" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Accuracy</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/precision-and-recall" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Precision and Recall</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/check-your-understanding-accuracy-precision-recall" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding: Accuracy, Precision, Recall</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">ROC and AUC</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/check-your-understanding-roc-and-auc" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding: ROC and AUC</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/prediction-bias" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Prediction Bias</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Regularization: Sparsity (45 min), click to expand/collapse" role="link">Regularization: Sparsity (45 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/l1-regularization" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">L1 Regularization</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/playground-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercise</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Introduction to Neural Nets (55 min), click to expand/collapse" role="link">Introduction to Neural Nets (55 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/introduction-to-neural-networks/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/introduction-to-neural-networks/anatomy" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Anatomy</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/introduction-to-neural-networks/playground-exercises" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercises</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/introduction-to-neural-networks/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Training Neural Nets (40 min), click to expand/collapse" role="link">Training Neural Nets (40 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/training-neural-networks/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/training-neural-networks/best-practices" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Best Practices</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/training-neural-networks/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Multi-Class Neural Nets (50 min), click to expand/collapse" role="link">Multi-Class Neural Nets (50 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/multi-class-neural-networks/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/multi-class-neural-networks/one-vs-all" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">One vs. All</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/multi-class-neural-networks/softmax" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Softmax</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/multi-class-neural-networks/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Embeddings (80 min), click to expand/collapse" role="link">Embeddings (80 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/embeddings/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/embeddings/motivation-from-collaborative-filtering" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Motivation from Collaborative Filtering</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/embeddings/categorical-input-data" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Categorical Input Data</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/embeddings/translating-to-a-lower-dimensional-space" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Translating to a Lower-Dimensional Space</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/embeddings/obtaining-embeddings" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Obtaining Embeddings</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/embeddings/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-heading"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">ML Engineering</span></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/production-ml-systems" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Production ML Systems (3 min)</a></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Static vs. Dynamic Training (7 min), click to expand/collapse" role="link">Static vs. Dynamic Training (7 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/static-vs-dynamic-training/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/static-vs-dynamic-training/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Static vs. Dynamic Inference (7 min), click to expand/collapse" role="link">Static vs. Dynamic Inference (7 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/static-vs-dynamic-inference/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/static-vs-dynamic-inference/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Data Dependencies (14 min), click to expand/collapse" role="link">Data Dependencies (14 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/data-dependencies/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/data-dependencies/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-heading"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">ML Real World Examples</span></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/cancer-prediction" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Cancer Prediction (5 min)</a></li><li class="devsite-nav-item devsite-nav-active"><a href="https://developers.google.com/machine-learning/crash-course/18th-century-literature" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">18th Century Literature (5 min)</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/real-world-guidelines" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Real-World Guidelines (2 min)</a></li><li class="devsite-nav-item devsite-nav-item-heading"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Conclusion</span></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/next-steps" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Next Steps</a></li></ul>
+    </nav>
+  </div>
+  
+</nav>
+
+
+        <div class="devsite-main-content clearfix">
+
+        
+        
+
+        
+  
+  
+    
+    
+      
+  <nav class="devsite-section-nav devsite-nav nocontent">
+    <ul class="devsite-nav-list devsite-nav-expandable"><li class="devsite-nav-item devsite-nav-item-heading"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Introduction</span></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/prereqs-and-prework" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Prerequisites and Prework</a></li><li class="devsite-nav-item devsite-nav-item-heading"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">ML Concepts</span></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/ml-intro" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Introduction to ML (3 min)</a></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Framing (15 min), click to expand/collapse" role="link">Framing (15 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/framing/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/framing/ml-terminology" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">ML Terminology</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/framing/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Descending into ML (20 min), click to expand/collapse" role="link">Descending into ML (20 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/descending-into-ml/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/descending-into-ml/linear-regression" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Linear Regression</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/descending-into-ml/training-and-loss" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Training and Loss</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/descending-into-ml/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Reducing Loss (60 min), click to expand/collapse" role="link">Reducing Loss (60 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/an-iterative-approach" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">An Iterative Approach</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/gradient-descent" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Gradient Descent</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/learning-rate" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Learning Rate</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/fitter/graph" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Optimizing Learning Rate</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/stochastic-gradient-descent" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Stochastic Gradient Descent</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/playground-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercise</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="First Steps with TF (60 min), click to expand/collapse" role="link">First Steps with TF (60 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/first-steps-with-tensorflow/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/first-steps-with-tensorflow/toolkit" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Toolkit</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/first-steps-with-tensorflow/programming-exercises" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercises</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Generalization (15 min), click to expand/collapse" role="link">Generalization (15 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/generalization/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/generalization/peril-of-overfitting" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Peril of Overfitting</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Training and Test Sets (25 min), click to expand/collapse" role="link">Training and Test Sets (25 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/training-and-test-sets/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/training-and-test-sets/splitting-data" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Splitting Data</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/training-and-test-sets/playground-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Validation (40 min), click to expand/collapse" role="link">Validation (40 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/validation/check-your-intuition" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Intuition</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/validation/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/validation/another-partition" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Another Partition</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/validation/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Representation (65 min), click to expand/collapse" role="link">Representation (65 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/representation/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/representation/feature-engineering" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Feature Engineering</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/representation/qualities-of-good-features" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Qualities of Good Features</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/representation/cleaning-data" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Cleaning Data</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/representation/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Feature Crosses (70 min), click to expand/collapse" role="link">Feature Crosses (70 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/feature-crosses/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/feature-crosses/encoding-nonlinearity" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Encoding Nonlinearity</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/feature-crosses/crossing-one-hot-vectors" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Crossing One-Hot Vectors</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/feature-crosses/playground-exercises" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercises</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/feature-crosses/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/feature-crosses/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Regularization: Simplicity (40 min), click to expand/collapse" role="link">Regularization: Simplicity (40 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/playground-exercise-overcrossing" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercise: Overcrossing?</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/l2-regularization" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">L2 Regularization</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/lambda" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Lambda</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/playground-exercise-examining-l2-regularization" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercise: Examining L2 Regularization</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Logistic Regression (20 min), click to expand/collapse" role="link">Logistic Regression (20 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/logistic-regression/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/logistic-regression/calculating-a-probability" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Calculating a Probability</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/logistic-regression/model-training" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Model Training</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Classification (90 min), click to expand/collapse" role="link">Classification (90 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/thresholding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Thresholding</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/true-false-positive-negative" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">True vs. False; Positive vs. Negative</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/accuracy" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Accuracy</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/precision-and-recall" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Precision and Recall</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/check-your-understanding-accuracy-precision-recall" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding: Accuracy, Precision, Recall</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">ROC and AUC</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/check-your-understanding-roc-and-auc" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding: ROC and AUC</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/prediction-bias" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Prediction Bias</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Regularization: Sparsity (45 min), click to expand/collapse" role="link">Regularization: Sparsity (45 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/l1-regularization" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">L1 Regularization</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/playground-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercise</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Introduction to Neural Nets (55 min), click to expand/collapse" role="link">Introduction to Neural Nets (55 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/introduction-to-neural-networks/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/introduction-to-neural-networks/anatomy" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Anatomy</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/introduction-to-neural-networks/playground-exercises" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercises</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/introduction-to-neural-networks/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Training Neural Nets (40 min), click to expand/collapse" role="link">Training Neural Nets (40 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/training-neural-networks/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/training-neural-networks/best-practices" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Best Practices</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/training-neural-networks/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Multi-Class Neural Nets (50 min), click to expand/collapse" role="link">Multi-Class Neural Nets (50 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/multi-class-neural-networks/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/multi-class-neural-networks/one-vs-all" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">One vs. All</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/multi-class-neural-networks/softmax" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Softmax</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/multi-class-neural-networks/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Embeddings (80 min), click to expand/collapse" role="link">Embeddings (80 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/embeddings/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/embeddings/motivation-from-collaborative-filtering" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Motivation from Collaborative Filtering</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/embeddings/categorical-input-data" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Categorical Input Data</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/embeddings/translating-to-a-lower-dimensional-space" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Translating to a Lower-Dimensional Space</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/embeddings/obtaining-embeddings" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Obtaining Embeddings</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/embeddings/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-heading"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">ML Engineering</span></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/production-ml-systems" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Production ML Systems (3 min)</a></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Static vs. Dynamic Training (7 min), click to expand/collapse" role="link">Static vs. Dynamic Training (7 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/static-vs-dynamic-training/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/static-vs-dynamic-training/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Static vs. Dynamic Inference (7 min), click to expand/collapse" role="link">Static vs. Dynamic Inference (7 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/static-vs-dynamic-inference/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/static-vs-dynamic-inference/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Data Dependencies (14 min), click to expand/collapse" role="link">Data Dependencies (14 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/data-dependencies/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/data-dependencies/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-heading"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">ML Real World Examples</span></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/cancer-prediction" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Cancer Prediction (5 min)</a></li><li class="devsite-nav-item devsite-nav-active"><a href="https://developers.google.com/machine-learning/crash-course/18th-century-literature" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">18th Century Literature (5 min)</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/real-world-guidelines" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Real-World Guidelines (2 min)</a></li><li class="devsite-nav-item devsite-nav-item-heading"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Conclusion</span></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/next-steps" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Next Steps</a></li></ul>
+  </nav>
+
+    
+
+    
+  <nav class="devsite-page-nav devsite-nav"></nav>
+
+
+      <article class="devsite-article">
+        <article class="devsite-article-inner">
+  
+          
+  
+
+
+
+  
+  <nav class="devsite-breadcrumb-nav devsite-nav">
+    
+
+
+<ul class="devsite-breadcrumb-list">
+  
+  <li class="devsite-breadcrumb-item">
+    
+    
+    <a href="https://developers.google.com/products/" class="devsite-breadcrumb-link gc-analytics-event"
+       data-category="Site-Wide Custom Events" data-label="Breadcrumbs"
+       data-value="1">
+    
+    
+      Products
+    
+    
+    </a>
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item">
+    
+    
+    <div class="devsite-breadcrumb-guillemet material-icons"></div>
+    
+    
+    <a href="https://developers.google.com/machine-learning/crash-course/" class="devsite-breadcrumb-link gc-analytics-event"
+       data-category="Site-Wide Custom Events" data-label="Breadcrumbs"
+       data-value="2">
+    
+    
+      Crash Course
+    
+    
+    </a>
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item">
+    
+    
+    <div class="devsite-breadcrumb-guillemet material-icons"></div>
+    
+    
+    <a href="https://developers.google.com/machine-learning/crash-course/prereqs-and-prework" class="devsite-breadcrumb-link gc-analytics-event"
+       data-category="Site-Wide Custom Events" data-label="Breadcrumbs"
+       data-value="3">
+    
+    
+      Course
+    
+    
+    </a>
+    
+  </li>
+  
+</ul>
+
+  </nav>
+  
+  
+  <h1 itemprop="name" class="devsite-page-title">
+    ML Systems in the Real World: Literature
+  </h1>
+  
+  
+  <nav class="devsite-page-nav-embedded devsite-nav"></nav>
+  
+  <div class="devsite-article-body clearfix
+            "
+       itemprop="articleBody">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://developers.google.com/_static/9abbcf9aa7/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
+<link rel="stylesheet" type="text/css" href="https://developers.google.com/machine-learning/crash-course/cc.css">
+<link rel="stylesheet" type="text/css" href="https://developers.google.com/machine-learning/crash-course/vplus-slides.css"></p>
+
+<p>In this lesson, you'll debug a real-world ML problem* related to 18th century
+literature.</p>
+<aside class="note time"><strong>Estimated Time:</strong> 5 minutes</aside>
+
+<aside class="objective"><b>Learning Objectives</b>
+  <ul>
+    <li> Determine flaws in real-world ML experimental design.  </li>
+  </ul>
+</aside>
+
+
+
+<script src="https://developers.google.com/_static/9abbcf9aa7/js/managed/vplus-widget.js"></script>
+
+<div class="devsite-vplus"
+     data-captions-url="captions/literature_example.json"
+     data-video-url='videos/zh-cn/production-real-world-authors.mp4'
+     data-video-id='Psyecv1A2C8'>
+  <div class="devsite-vplus-content-container">
+    <div class="devsite-vplus-slide-frame">
+      <div class="title-background" data-start-time="0">
+        <h1 class="title">Real World Example: 18th Century Literature</h1>
+      </div>
+      <div data-start-time="4">
+        <h2 class="hide-from-toc">Real World Example: 18th Century Literature</h2>
+        <div class="split">
+          <div class="split-left" style="width: 77%">
+            <ul>
+              <li>Professor of 18th Century Literature wanted to predict the political affiliation of authors based only on the "mind metaphors" the author used.</li>
+            </ul>
+          </div>
+          <div class="split-right" style="width: 20%">
+            <img alt="Old Books" src="https://developers.google.com/machine-learning/crash-course/images/OldBooks.jpg"/>
+          </div>
+        </div>
+      </div>
+      <div data-start-time="38">
+        <h2 class="hide-from-toc">Real World Example: 18th Century Literature</h2>
+        <div class="split">
+            <div class="split-left" style="width: 77%">
+            <ul>
+              <li>Professor of 18th Century Literature wanted to predict the political affiliation of authors based only on the "mind metaphors" the author used.</li>
+              <li>Team of researchers made a big labeled data set with many authors' works, sentence by sentence, and split into train/validation/test sets.</li>
+            </ul>
+          </div>
+          <div class="split-right" style="width: 20%">
+            <img alt="Old Books" src="https://developers.google.com/machine-learning/crash-course/images/OldBooks.jpg"/>
+          </div>
+        </div>
+      </div>
+      <div data-start-time="63">
+        <h2 class="hide-from-toc">Real World Example: 18th Century Literature</h2>
+        <div class="split">
+          <div class="split-left" style="width: 77%">
+            <ul>
+              <li>Professor of 18th Century Literature wanted to predict the political affiliation of authors based only on the "mind metaphors" the author used.</li>
+              <li>Team of researchers made a big labeled data set with many authors' works, sentence by sentence, and split into train/validation/test sets.</li>
+              <li>Trained model did nearly perfectly on test data, but researchers felt results were suspiciously accurate. What might have gone wrong?</li>
+            </ul>
+          </div>
+          <div class="split-right" style="width: 20%">
+            <img alt="Old Books" src="https://developers.google.com/machine-learning/crash-course/images/OldBooks.jpg"/>
+          </div>
+        </div>
+      </div>
+      <div data-start-time="81" data-video-mode="stopped">
+        <h2 class="hide-from-toc">Real World Example: 18th Century Literature</h2>
+        <p style="width: 80%; text-align: center; margin: auto;">
+          Why do you think test accuracy was suspiciously high? See if you can figure out the
+          problem, and then click the Play button ▶ below to find out if you're correct.</p>
+      </div>
+      <div data-start-time="82">
+        <h2 class="hide-from-toc">Real World Example: 18th Century Literature</h2>
+        <ul>
+          <li>Data Split A: Researchers put some of each author's examples in training set, some in validation set, some in test set.</li>
+        </ul>
+        <div class="text-for-screen-reader">All of Richardson's examples might be in the training set, while all of Swift's examples might be in the validation set.</div>
+        <div class="svg-container three-authors-per-set" style="height: 175px;">
+          <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   viewBox="0 0 850 240"
+   stroke-miterlimit="10"
+   id="svg2"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="LiteratureDataSets.svg"
+   width="850"
+   height="240"
+   style="fill:none;stroke:none;stroke-linecap:square;stroke-miterlimit:10">
+  <metadata
+     id="metadata133">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs131" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1403"
+     inkscape:window-height="859"
+     id="namedview129"
+     showgrid="false"
+     inkscape:zoom="0.57083333"
+     inkscape:cx="349.81938"
+     inkscape:cy="221.96357"
+     inkscape:window-x="231"
+     inkscape:window-y="1"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2" />
+  <clipPath
+     id="g18edd06efa_0_30.0">
+    <path
+       d="M 0,0 960,0 960,540 0,540 0,0 Z"
+       id="path5"
+       inkscape:connector-curvature="0"
+       style="clip-rule:nonzero" />
+  </clipPath>
+  <path
+     style="fill-rule:evenodd;stroke:#424242;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round"
+     inkscape:connector-curvature="0"
+     id="path53"
+     d="m 38.889755,70.39868 220.220465,0 0,122.14171 -220.220465,0 z" />
+  <path
+     style="fill-rule:evenodd;stroke:#424242;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round"
+     inkscape:connector-curvature="0"
+     id="path75"
+     d="m 314.88974,70.39868 220.2205,0 0,122.14171 -220.2205,0 z" />
+  <path
+     style="fill-rule:evenodd;stroke:#424242;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round"
+     inkscape:connector-curvature="0"
+     id="path97"
+     d="m 590.88979,70.39868 220.22046,0 0,122.14171 -220.22046,0 z" />
+  <text
+     sodipodi:linespacing="125%"
+     id="text4261"
+     y="56.741516"
+     x="69.96434"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;font-family:Roboto;-inkscape-font-specification:Roboto"
+       y="56.741516"
+       x="69.96434"
+       id="tspan4263"
+       sodipodi:role="line">Training Set</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+     x="321.25684"
+     y="60.154602"
+     id="text4283"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4285"
+       x="321.25684"
+       y="60.154602"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;font-family:Roboto;-inkscape-font-specification:Roboto">Validation Set</tspan></text>
+  <text
+     sodipodi:linespacing="125%"
+     id="text4287"
+     y="59.715149"
+     x="646.8374"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;font-family:Roboto;-inkscape-font-specification:Roboto"
+       y="59.715149"
+       x="646.8374"
+       id="tspan4289"
+       sodipodi:role="line">Test Set</tspan></text>
+  <g
+     id="OneAuthorPerSetGroup">
+    <g
+       id="g4723">
+      <path
+         d="m 55.62206,130.04421 0,0 c 0,-26.10435 43.574464,-47.26615 97.32631,-47.26615 l 0,0 c 53.75188,0 97.32632,21.1618 97.32632,47.26615 l 0,0 c 0,26.10429 -43.57444,47.26601 -97.32632,47.26601 l 0,0 c -53.751846,0 -97.32631,-21.16172 -97.32631,-47.26601 z"
+         id="path4426"
+         inkscape:connector-curvature="0"
+         style="fill:#d9d2e9;fill-opacity:1;fill-rule:evenodd;stroke:#424242;stroke-width:2.22644687;stroke-linecap:butt;stroke-linejoin:round" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4428"
+         y="108.07147"
+         x="152.57483"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:center;text-anchor:middle"
+           y="108.07147"
+           x="152.57483"
+           id="tspan4430"
+           sodipodi:role="line">All the</tspan><tspan
+           id="tspan4432"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:center;text-anchor:middle"
+           y="136.19647"
+           x="152.57483"
+           sodipodi:role="line">Swift</tspan><tspan
+           id="tspan4434"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:center;text-anchor:middle"
+           y="164.32147"
+           x="152.57483"
+           sodipodi:role="line">Examples</tspan></text>
+    </g>
+    <g
+       id="g4471"
+       transform="translate(17.885795,-620.50311)">
+      <path
+         style="fill:#d9ead3;fill-opacity:1;fill-rule:evenodd;stroke:#424242;stroke-width:2.22644687;stroke-linecap:butt;stroke-linejoin:round"
+         inkscape:connector-curvature="0"
+         id="path4436"
+         d="m 309.78788,751.97272 0,0 c 0,-26.10435 43.57446,-47.26615 97.32631,-47.26615 l 0,0 c 53.75188,0 97.32632,21.1618 97.32632,47.26615 l 0,0 c 0,26.10429 -43.57444,47.26601 -97.32632,47.26601 l 0,0 c -53.75185,0 -97.32631,-21.16172 -97.32631,-47.26601 z" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+         x="406.74066"
+         y="730"
+         id="text4438"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4440"
+           x="406.74066"
+           y="730"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:center;text-anchor:middle">All the</tspan><tspan
+           sodipodi:role="line"
+           x="406.74066"
+           y="758.125"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:center;text-anchor:middle"
+           id="tspan4442">Blake</tspan><tspan
+           sodipodi:role="line"
+           x="406.74066"
+           y="786.25"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:center;text-anchor:middle"
+           id="tspan4444">Examples</tspan></text>
+    </g>
+    <path
+       style="fill:#e6b8af;fill-opacity:1;fill-rule:evenodd;stroke:#424242;stroke-width:2.22644687;stroke-linecap:butt;stroke-linejoin:round"
+       inkscape:connector-curvature="0"
+       id="path4454"
+       d="m 603.67371,131.46961 0,0 c 0,-26.10435 43.57446,-47.26615 97.32631,-47.26615 l 0,0 c 53.75188,0 97.32632,21.1618 97.32632,47.26615 l 0,0 c 0,26.10429 -43.57444,47.26601 -97.32632,47.26601 l 0,0 c -53.75185,0 -97.32631,-21.16172 -97.32631,-47.26601 z" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+       x="700.62646"
+       y="109.49689"
+       id="text4456"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4458"
+         x="700.62646"
+         y="109.49689"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:center;text-anchor:middle">All the</tspan><tspan
+         sodipodi:role="line"
+         x="700.62646"
+         y="137.62189"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:center;text-anchor:middle"
+         id="tspan4460">Defoe</tspan><tspan
+         sodipodi:role="line"
+         x="700.62646"
+         y="165.74689"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:center;text-anchor:middle"
+         id="tspan4462">Examples</tspan></text>
+  </g>
+  <g
+     id="ThreeAuthorsPerSetGroup"
+     inkscape:label="#ThreeAuthorsPerSetGroup"
+     transform="translate(167.48176,-228.37918)">
+    <g
+       transform="translate(-173.73723,238.94614)"
+       id="3AuthorsPerSet1"
+       style="fill:none;stroke:none;stroke-linecap:square;stroke-miterlimit:10">
+      <path
+         style="fill:#d9d2e9;fill-opacity:1;fill-rule:evenodd;stroke:#424242;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round"
+         inkscape:connector-curvature="0"
+         id="path57"
+         d="m 51.505187,84.93467 0,0 c 0,-9.0279 25.41753,-16.34648 56.771653,-16.34648 l 0,0 c 31.35413,0 56.77165,7.31858 56.77165,16.34648 l 0,0 c 0,9.02788 -25.41752,16.34643 -56.77165,16.34643 l 0,0 c -31.354123,0 -56.771653,-7.31855 -56.771653,-16.34643 z" />
+      <path
+         style="fill:#e6b8af;fill-opacity:1;fill-rule:evenodd;stroke:#424242;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round"
+         inkscape:connector-curvature="0"
+         id="path63"
+         d="m 143.46244,157.85847 0,0 c 0,-9.02789 25.41753,-16.34648 56.77165,-16.34648 l 0,0 c 31.35411,0 56.77164,7.31858 56.77164,16.34648 l 0,0 c 0,9.02788 -25.41753,16.34644 -56.77164,16.34644 l 0,0 c -31.35412,0 -56.77165,-7.31856 -56.77165,-16.34644 z" />
+      <path
+         style="fill:#d9ead3;fill-opacity:1;fill-rule:evenodd;stroke:#424242;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round"
+         inkscape:connector-curvature="0"
+         id="path69"
+         d="m 103.97764,119.67612 0,0 c 0,-9.02788 25.41753,-16.34646 56.77165,-16.34646 l 0,0 c 31.35412,0 56.77164,7.31858 56.77164,16.34646 l 0,0 c 0,9.02789 -25.41752,16.34648 -56.77164,16.34648 l 0,0 c -31.35411,0 -56.77165,-7.31858 -56.77165,-16.34647 z" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+         x="82.799545"
+         y="93.377625"
+         id="text4291"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4293"
+           x="82.799545"
+           y="93.377625"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto">Swift</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text4313"
+         y="128.00375"
+         x="132.84401"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto"
+           y="128.00375"
+           x="132.84401"
+           id="tspan4315"
+           sodipodi:role="line">Blake</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text4313-5"
+         y="166.30142"
+         x="170.0876"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto"
+           y="166.30142"
+           x="170.0876"
+           id="tspan4315-8"
+           sodipodi:role="line">Defoe</tspan></text>
+    </g>
+    <g
+       transform="translate(120.89309,-81.483985)"
+       id="3AuthorsPerSet2"
+       style="fill:none;stroke:none;stroke-linecap:square;stroke-miterlimit:10">
+      <path
+         d="m 33.619392,405.43778 0,0 c 0,-9.0279 25.41753,-16.34648 56.771655,-16.34648 l 0,0 c 31.354133,0 56.771653,7.31858 56.771653,16.34648 l 0,0 c 0,9.02788 -25.41752,16.34643 -56.771653,16.34643 l 0,0 c -31.354125,0 -56.771655,-7.31855 -56.771655,-16.34643 z"
+         id="path4356"
+         inkscape:connector-curvature="0"
+         style="fill:#d9d2e9;fill-opacity:1;fill-rule:evenodd;stroke:#424242;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round" />
+      <path
+         d="m 125.57665,478.36158 0,0 c 0,-9.02789 25.41753,-16.34648 56.77165,-16.34648 l 0,0 c 31.35411,0 56.77164,7.31858 56.77164,16.34648 l 0,0 c 0,9.02788 -25.41753,16.34644 -56.77164,16.34644 l 0,0 c -31.35412,0 -56.77165,-7.31856 -56.77165,-16.34644 z"
+         id="path4358"
+         inkscape:connector-curvature="0"
+         style="fill:#e6b8af;fill-opacity:1;fill-rule:evenodd;stroke:#424242;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round" />
+      <path
+         d="m 86.091847,440.17923 0,0 c 0,-9.02788 25.417533,-16.34646 56.771643,-16.34646 l 0,0 c 31.35413,0 56.77165,7.31858 56.77165,16.34646 l 0,0 c 0,9.02789 -25.41752,16.34648 -56.77165,16.34648 l 0,0 c -31.35411,0 -56.771643,-7.31858 -56.771643,-16.34647 z"
+         id="path4360"
+         inkscape:connector-curvature="0"
+         style="fill:#d9ead3;fill-opacity:1;fill-rule:evenodd;stroke:#424242;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4362"
+         y="413.88074"
+         x="64.91375"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto"
+           y="413.88074"
+           x="64.91375"
+           id="tspan4364"
+           sodipodi:role="line">Swift</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+         x="114.95821"
+         y="448.50687"
+         id="text4366"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4368"
+           x="114.95821"
+           y="448.50687"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto">Blake</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+         x="152.20181"
+         y="486.80453"
+         id="text4370"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4372"
+           x="152.20181"
+           y="486.80453"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto">Defoe</tspan></text>
+    </g>
+    <g
+       id="3AuthorsPerSet3">
+      <path
+         d="m 431.76798,323.88081 0,0 c 0,-9.0279 25.41753,-16.34648 56.77166,-16.34648 l 0,0 c 31.35413,0 56.77165,7.31858 56.77165,16.34648 l 0,0 c 0,9.02788 -25.41752,16.34643 -56.77165,16.34643 l 0,0 c -31.35413,0 -56.77166,-7.31855 -56.77166,-16.34643 z"
+         id="path4376"
+         inkscape:connector-curvature="0"
+         style="fill:#d9d2e9;fill-opacity:1;fill-rule:evenodd;stroke:#424242;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10" />
+      <path
+         d="m 523.72524,396.80461 0,0 c 0,-9.02789 25.41753,-16.34648 56.77165,-16.34648 l 0,0 c 31.35411,0 56.77164,7.31858 56.77164,16.34648 l 0,0 c 0,9.02788 -25.41753,16.34644 -56.77164,16.34644 l 0,0 c -31.35412,0 -56.77165,-7.31856 -56.77165,-16.34644 z"
+         id="path4378"
+         inkscape:connector-curvature="0"
+         style="fill:#e6b8af;fill-opacity:1;fill-rule:evenodd;stroke:#424242;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10" />
+      <path
+         d="m 484.24044,358.62226 0,0 c 0,-9.02788 25.41753,-16.34646 56.77164,-16.34646 l 0,0 c 31.35413,0 56.77165,7.31858 56.77165,16.34646 l 0,0 c 0,9.02789 -25.41752,16.34648 -56.77165,16.34648 l 0,0 c -31.35411,0 -56.77164,-7.31858 -56.77164,-16.34647 z"
+         id="path4380"
+         inkscape:connector-curvature="0"
+         style="fill:#d9ead3;fill-opacity:1;fill-rule:evenodd;stroke:#424242;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4382"
+         y="332.32376"
+         x="463.06235"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto"
+           y="332.32376"
+           x="463.06235"
+           id="tspan4384"
+           sodipodi:role="line">Swift</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+         x="513.10681"
+         y="366.94989"
+         id="text4386"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4388"
+           x="513.10681"
+           y="366.94989"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto">Blake</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+         x="550.3504"
+         y="405.24756"
+         id="text4390"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4392"
+           x="550.3504"
+           y="405.24756"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto">Defoe</tspan></text>
+    </g>
+  </g>
+</svg>
+
+        </div>
+      </div>
+      <div data-start-time="114">
+        <h2 class="hide-from-toc">Real World Example: 18th Century Literature</h2>
+        <ul>
+          <li>Data Split B: Researchers put all of each author's examples in a single set.</li>
+        </ul>
+        <div class="svg-container one-author-per-set" style="height: 175px;">
+          <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   viewBox="0 0 850 240"
+   stroke-miterlimit="10"
+   id="svg2"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="LiteratureDataSets.svg"
+   width="850"
+   height="240"
+   style="fill:none;stroke:none;stroke-linecap:square;stroke-miterlimit:10">
+  <metadata
+     id="metadata133">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs131" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1403"
+     inkscape:window-height="859"
+     id="namedview129"
+     showgrid="false"
+     inkscape:zoom="0.57083333"
+     inkscape:cx="349.81938"
+     inkscape:cy="221.96357"
+     inkscape:window-x="231"
+     inkscape:window-y="1"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2" />
+  <clipPath
+     id="g18edd06efa_0_30.0">
+    <path
+       d="M 0,0 960,0 960,540 0,540 0,0 Z"
+       id="path5"
+       inkscape:connector-curvature="0"
+       style="clip-rule:nonzero" />
+  </clipPath>
+  <path
+     style="fill-rule:evenodd;stroke:#424242;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round"
+     inkscape:connector-curvature="0"
+     id="path53"
+     d="m 38.889755,70.39868 220.220465,0 0,122.14171 -220.220465,0 z" />
+  <path
+     style="fill-rule:evenodd;stroke:#424242;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round"
+     inkscape:connector-curvature="0"
+     id="path75"
+     d="m 314.88974,70.39868 220.2205,0 0,122.14171 -220.2205,0 z" />
+  <path
+     style="fill-rule:evenodd;stroke:#424242;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round"
+     inkscape:connector-curvature="0"
+     id="path97"
+     d="m 590.88979,70.39868 220.22046,0 0,122.14171 -220.22046,0 z" />
+  <text
+     sodipodi:linespacing="125%"
+     id="text4261"
+     y="56.741516"
+     x="69.96434"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;font-family:Roboto;-inkscape-font-specification:Roboto"
+       y="56.741516"
+       x="69.96434"
+       id="tspan4263"
+       sodipodi:role="line">Training Set</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+     x="321.25684"
+     y="60.154602"
+     id="text4283"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4285"
+       x="321.25684"
+       y="60.154602"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;font-family:Roboto;-inkscape-font-specification:Roboto">Validation Set</tspan></text>
+  <text
+     sodipodi:linespacing="125%"
+     id="text4287"
+     y="59.715149"
+     x="646.8374"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;font-family:Roboto;-inkscape-font-specification:Roboto"
+       y="59.715149"
+       x="646.8374"
+       id="tspan4289"
+       sodipodi:role="line">Test Set</tspan></text>
+  <g
+     id="OneAuthorPerSetGroup">
+    <g
+       id="g4723">
+      <path
+         d="m 55.62206,130.04421 0,0 c 0,-26.10435 43.574464,-47.26615 97.32631,-47.26615 l 0,0 c 53.75188,0 97.32632,21.1618 97.32632,47.26615 l 0,0 c 0,26.10429 -43.57444,47.26601 -97.32632,47.26601 l 0,0 c -53.751846,0 -97.32631,-21.16172 -97.32631,-47.26601 z"
+         id="path4426"
+         inkscape:connector-curvature="0"
+         style="fill:#d9d2e9;fill-opacity:1;fill-rule:evenodd;stroke:#424242;stroke-width:2.22644687;stroke-linecap:butt;stroke-linejoin:round" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4428"
+         y="108.07147"
+         x="152.57483"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:center;text-anchor:middle"
+           y="108.07147"
+           x="152.57483"
+           id="tspan4430"
+           sodipodi:role="line">All the</tspan><tspan
+           id="tspan4432"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:center;text-anchor:middle"
+           y="136.19647"
+           x="152.57483"
+           sodipodi:role="line">Swift</tspan><tspan
+           id="tspan4434"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:center;text-anchor:middle"
+           y="164.32147"
+           x="152.57483"
+           sodipodi:role="line">Examples</tspan></text>
+    </g>
+    <g
+       id="g4471"
+       transform="translate(17.885795,-620.50311)">
+      <path
+         style="fill:#d9ead3;fill-opacity:1;fill-rule:evenodd;stroke:#424242;stroke-width:2.22644687;stroke-linecap:butt;stroke-linejoin:round"
+         inkscape:connector-curvature="0"
+         id="path4436"
+         d="m 309.78788,751.97272 0,0 c 0,-26.10435 43.57446,-47.26615 97.32631,-47.26615 l 0,0 c 53.75188,0 97.32632,21.1618 97.32632,47.26615 l 0,0 c 0,26.10429 -43.57444,47.26601 -97.32632,47.26601 l 0,0 c -53.75185,0 -97.32631,-21.16172 -97.32631,-47.26601 z" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+         x="406.74066"
+         y="730"
+         id="text4438"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4440"
+           x="406.74066"
+           y="730"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:center;text-anchor:middle">All the</tspan><tspan
+           sodipodi:role="line"
+           x="406.74066"
+           y="758.125"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:center;text-anchor:middle"
+           id="tspan4442">Blake</tspan><tspan
+           sodipodi:role="line"
+           x="406.74066"
+           y="786.25"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:center;text-anchor:middle"
+           id="tspan4444">Examples</tspan></text>
+    </g>
+    <path
+       style="fill:#e6b8af;fill-opacity:1;fill-rule:evenodd;stroke:#424242;stroke-width:2.22644687;stroke-linecap:butt;stroke-linejoin:round"
+       inkscape:connector-curvature="0"
+       id="path4454"
+       d="m 603.67371,131.46961 0,0 c 0,-26.10435 43.57446,-47.26615 97.32631,-47.26615 l 0,0 c 53.75188,0 97.32632,21.1618 97.32632,47.26615 l 0,0 c 0,26.10429 -43.57444,47.26601 -97.32632,47.26601 l 0,0 c -53.75185,0 -97.32631,-21.16172 -97.32631,-47.26601 z" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+       x="700.62646"
+       y="109.49689"
+       id="text4456"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4458"
+         x="700.62646"
+         y="109.49689"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:center;text-anchor:middle">All the</tspan><tspan
+         sodipodi:role="line"
+         x="700.62646"
+         y="137.62189"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:center;text-anchor:middle"
+         id="tspan4460">Defoe</tspan><tspan
+         sodipodi:role="line"
+         x="700.62646"
+         y="165.74689"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:center;text-anchor:middle"
+         id="tspan4462">Examples</tspan></text>
+  </g>
+  <g
+     id="ThreeAuthorsPerSetGroup"
+     inkscape:label="#ThreeAuthorsPerSetGroup"
+     transform="translate(167.48176,-228.37918)">
+    <g
+       transform="translate(-173.73723,238.94614)"
+       id="3AuthorsPerSet1"
+       style="fill:none;stroke:none;stroke-linecap:square;stroke-miterlimit:10">
+      <path
+         style="fill:#d9d2e9;fill-opacity:1;fill-rule:evenodd;stroke:#424242;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round"
+         inkscape:connector-curvature="0"
+         id="path57"
+         d="m 51.505187,84.93467 0,0 c 0,-9.0279 25.41753,-16.34648 56.771653,-16.34648 l 0,0 c 31.35413,0 56.77165,7.31858 56.77165,16.34648 l 0,0 c 0,9.02788 -25.41752,16.34643 -56.77165,16.34643 l 0,0 c -31.354123,0 -56.771653,-7.31855 -56.771653,-16.34643 z" />
+      <path
+         style="fill:#e6b8af;fill-opacity:1;fill-rule:evenodd;stroke:#424242;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round"
+         inkscape:connector-curvature="0"
+         id="path63"
+         d="m 143.46244,157.85847 0,0 c 0,-9.02789 25.41753,-16.34648 56.77165,-16.34648 l 0,0 c 31.35411,0 56.77164,7.31858 56.77164,16.34648 l 0,0 c 0,9.02788 -25.41753,16.34644 -56.77164,16.34644 l 0,0 c -31.35412,0 -56.77165,-7.31856 -56.77165,-16.34644 z" />
+      <path
+         style="fill:#d9ead3;fill-opacity:1;fill-rule:evenodd;stroke:#424242;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round"
+         inkscape:connector-curvature="0"
+         id="path69"
+         d="m 103.97764,119.67612 0,0 c 0,-9.02788 25.41753,-16.34646 56.77165,-16.34646 l 0,0 c 31.35412,0 56.77164,7.31858 56.77164,16.34646 l 0,0 c 0,9.02789 -25.41752,16.34648 -56.77164,16.34648 l 0,0 c -31.35411,0 -56.77165,-7.31858 -56.77165,-16.34647 z" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+         x="82.799545"
+         y="93.377625"
+         id="text4291"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4293"
+           x="82.799545"
+           y="93.377625"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto">Swift</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text4313"
+         y="128.00375"
+         x="132.84401"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto"
+           y="128.00375"
+           x="132.84401"
+           id="tspan4315"
+           sodipodi:role="line">Blake</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text4313-5"
+         y="166.30142"
+         x="170.0876"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto"
+           y="166.30142"
+           x="170.0876"
+           id="tspan4315-8"
+           sodipodi:role="line">Defoe</tspan></text>
+    </g>
+    <g
+       transform="translate(120.89309,-81.483985)"
+       id="3AuthorsPerSet2"
+       style="fill:none;stroke:none;stroke-linecap:square;stroke-miterlimit:10">
+      <path
+         d="m 33.619392,405.43778 0,0 c 0,-9.0279 25.41753,-16.34648 56.771655,-16.34648 l 0,0 c 31.354133,0 56.771653,7.31858 56.771653,16.34648 l 0,0 c 0,9.02788 -25.41752,16.34643 -56.771653,16.34643 l 0,0 c -31.354125,0 -56.771655,-7.31855 -56.771655,-16.34643 z"
+         id="path4356"
+         inkscape:connector-curvature="0"
+         style="fill:#d9d2e9;fill-opacity:1;fill-rule:evenodd;stroke:#424242;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round" />
+      <path
+         d="m 125.57665,478.36158 0,0 c 0,-9.02789 25.41753,-16.34648 56.77165,-16.34648 l 0,0 c 31.35411,0 56.77164,7.31858 56.77164,16.34648 l 0,0 c 0,9.02788 -25.41753,16.34644 -56.77164,16.34644 l 0,0 c -31.35412,0 -56.77165,-7.31856 -56.77165,-16.34644 z"
+         id="path4358"
+         inkscape:connector-curvature="0"
+         style="fill:#e6b8af;fill-opacity:1;fill-rule:evenodd;stroke:#424242;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round" />
+      <path
+         d="m 86.091847,440.17923 0,0 c 0,-9.02788 25.417533,-16.34646 56.771643,-16.34646 l 0,0 c 31.35413,0 56.77165,7.31858 56.77165,16.34646 l 0,0 c 0,9.02789 -25.41752,16.34648 -56.77165,16.34648 l 0,0 c -31.35411,0 -56.771643,-7.31858 -56.771643,-16.34647 z"
+         id="path4360"
+         inkscape:connector-curvature="0"
+         style="fill:#d9ead3;fill-opacity:1;fill-rule:evenodd;stroke:#424242;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4362"
+         y="413.88074"
+         x="64.91375"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto"
+           y="413.88074"
+           x="64.91375"
+           id="tspan4364"
+           sodipodi:role="line">Swift</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+         x="114.95821"
+         y="448.50687"
+         id="text4366"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4368"
+           x="114.95821"
+           y="448.50687"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto">Blake</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+         x="152.20181"
+         y="486.80453"
+         id="text4370"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4372"
+           x="152.20181"
+           y="486.80453"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto">Defoe</tspan></text>
+    </g>
+    <g
+       id="3AuthorsPerSet3">
+      <path
+         d="m 431.76798,323.88081 0,0 c 0,-9.0279 25.41753,-16.34648 56.77166,-16.34648 l 0,0 c 31.35413,0 56.77165,7.31858 56.77165,16.34648 l 0,0 c 0,9.02788 -25.41752,16.34643 -56.77165,16.34643 l 0,0 c -31.35413,0 -56.77166,-7.31855 -56.77166,-16.34643 z"
+         id="path4376"
+         inkscape:connector-curvature="0"
+         style="fill:#d9d2e9;fill-opacity:1;fill-rule:evenodd;stroke:#424242;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10" />
+      <path
+         d="m 523.72524,396.80461 0,0 c 0,-9.02789 25.41753,-16.34648 56.77165,-16.34648 l 0,0 c 31.35411,0 56.77164,7.31858 56.77164,16.34648 l 0,0 c 0,9.02788 -25.41753,16.34644 -56.77164,16.34644 l 0,0 c -31.35412,0 -56.77165,-7.31856 -56.77165,-16.34644 z"
+         id="path4378"
+         inkscape:connector-curvature="0"
+         style="fill:#e6b8af;fill-opacity:1;fill-rule:evenodd;stroke:#424242;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10" />
+      <path
+         d="m 484.24044,358.62226 0,0 c 0,-9.02788 25.41753,-16.34646 56.77164,-16.34646 l 0,0 c 31.35413,0 56.77165,7.31858 56.77165,16.34646 l 0,0 c 0,9.02789 -25.41752,16.34648 -56.77165,16.34648 l 0,0 c -31.35411,0 -56.77164,-7.31858 -56.77164,-16.34647 z"
+         id="path4380"
+         inkscape:connector-curvature="0"
+         style="fill:#d9ead3;fill-opacity:1;fill-rule:evenodd;stroke:#424242;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4382"
+         y="332.32376"
+         x="463.06235"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto"
+           y="332.32376"
+           x="463.06235"
+           id="tspan4384"
+           sodipodi:role="line">Swift</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+         x="513.10681"
+         y="366.94989"
+         id="text4386"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4388"
+           x="513.10681"
+           y="366.94989"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto">Blake</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
+         x="550.3504"
+         y="405.24756"
+         id="text4390"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4392"
+           x="550.3504"
+           y="405.24756"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:Roboto;-inkscape-font-specification:Roboto">Defoe</tspan></text>
+    </g>
+  </g>
+</svg>
+
+        </div>
+      </div>
+      <div data-start-time="127">
+        <h2 class="hide-from-toc">Real World Example: 18th Century Literature</h2>
+        <ul>
+          <li>Data Split A: Researchers put some of each author's examples in training set, some in validation set, some in test set.</li>
+          <li>Data Split B: Researchers put all of each author's examples in a single set.</li>
+          <li>Results: The model trained on Data Split A had much higher accuracy than the model trained on Data Split B.</li>
+        </ul>
+      </div>
+      <div data-start-time="140">
+        <h2 class="hide-from-toc">Real World Example: 18th Century Literature</h2>
+        <p class='center-text-horizontal'>The moral: carefully consider how you split examples.</p>
+        <p class='center-text-horizontal'>Know what the data represents.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<p>* We based this module very loosely (making some modifications along the way)
+on <a href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.103.21"
+target="citation">
+"Meaning and Mining: the Impact of Implicit Assumptions in Data Mining for the
+Humanities" by Sculley and Pasanek</a>.</p>
+
+
+
+
+
+
+<div style="text-align: center; padding-top: 20px;">
+  <a class="button button-primary" href="https://support.google.com/machinelearningeducation">Help Center</a>
+</div>
+
+
+
+
+  </div>
+  
+
+  
+        
+  
+
+
+
+
+
+<div class="devsite-steps">
+  
+  <div class="devsite-steps-previous devsite-steps-direction">
+    <a class="devsite-steps-link" href="https://developers.google.com/machine-learning/crash-course/cancer-prediction">
+      <div class="devsite-steps-link-direction"
+           
+           aria-label="Click to visit the previous chapter, Cancer Prediction (5 min)">
+        
+        Previous
+      </div>
+      <span class="devsite-steps-link-title-previous devsite-steps-link-title" aria-hidden="true">
+        <span class="devsite-steps-link-arrow devsite-steps-link-arrow-left material-icons">
+          arrow_back
+        </span>
+        Cancer Prediction (5 min)
+      </span>
+    </a>
+  </div>
+  
+  
+  <div class="devsite-steps-next devsite-steps-direction">
+    <a class="devsite-steps-link" href="https://developers.google.com/machine-learning/crash-course/real-world-guidelines">
+      <div class="devsite-steps-link-direction"
+           
+           aria-label="Click to visit the next chapter, Real-World Guidelines (2 min)">
+        
+        Next
+      </div>
+      <span class="devsite-steps-link-title-next devsite-steps-link-title" aria-hidden="true">
+        <span class="devsite-steps-link-arrow devsite-steps-link-arrow-right material-icons">
+          arrow_forward
+        </span>
+        Real-World Guidelines (2 min)
+      </span>
+    </a>
+  </div>
+  
+</div>
+
+
+
+        
+<div class="devsite-content-footer nocontent">
+  
+  
+    <p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://developers.google.com/terms/site-policies">Site Policies</a>. Java is a registered trademark of Oracle and/or its affiliates.</p>
+  
+
+  
+    
+    <p class="devsite-content-footer-date" itemprop="datePublished"
+       content="2018-02-21T01:17:45.949370">
+      
+      Last updated February 21, 2018.
+    </p>
+  
+
+</div>
+
+        </article>
+      </article>
+  
+
+        </div>
+      
+
+<footer class="devsite-footer-linkboxes nocontent
+               devsite-footer-linkboxes-all-backup
+               devsite-footer-linkboxes-with-sites"><nav class="devsite-full-site-width"><ul class="devsite-footer-linkboxes-list"><li class="devsite-footer-linkbox devsite-footer-linkbox-backup"><h3 class="devsite-footer-linkbox-heading">Connect</h3><ul class="devsite-footer-linkbox-list"><li class="devsite-footer-linkbox-item"><a href="//googledevelopers.blogspot.com" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Blog Link">
+                Blog
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//www.facebook.com/Google-Developers-967415219957038/" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Facebook Link">
+                Facebook
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//plus.google.com/+GoogleDevelopers" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer G+ Link">
+                Google+
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//medium.com/google-developers" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Medium Link">
+                Medium
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//twitter.com/googledevs" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Twitter Link">
+                Twitter
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//www.youtube.com/user/GoogleDevelopers" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer YouTube Link">
+                YouTube
+            </a></li></ul></li><li class="devsite-footer-linkbox devsite-footer-linkbox-backup"><h3 class="devsite-footer-linkbox-heading">Programs</h3><ul class="devsite-footer-linkbox-list"><li class="devsite-footer-linkbox-item"><a href="//www.womentechmakers.com" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Women Techmakers">
+                Women Techmakers
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//developers.google.com/agency/" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Agency">
+                Agency Program
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//developers.google.com/groups/" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Groups">
+                GDG
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//developers.google.com/experts/" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Experts">
+                Google Developers Experts
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//developers.google.com/startups/" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Startups">
+                Startup Launchpad
+            </a></li></ul></li><li class="devsite-footer-linkbox devsite-footer-linkbox-backup"><h3 class="devsite-footer-linkbox-heading">Developer Consoles</h3><ul class="devsite-footer-linkbox-list"><li class="devsite-footer-linkbox-item"><a href="//console.developers.google.com" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Google Developers Console">
+                Google API Console
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//console.cloud.google.com" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Google Cloud Platform Console">
+                Google Cloud Platform Console
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//play.google.com/apps/publish/" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Google Play Console">
+                Google Play Console
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//console.firebase.google.com" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Firebase Console">
+                Firebase Console
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//cast.google.com/publish/" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Cast SDK Developer Console">
+                Cast SDK Developer Console
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//chrome.google.com/webstore/developer/dashboard" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Chrome Web Store Developer Dashboard">
+                Chrome Web Store Dashboard
+            </a></li></ul></li><li class="devsite-footer-linkbox devsite-footer-linkbox-sites"><a href="https://developers.google.com/"
+           class="gc-analytics-event devsite-footer-linkbox-logo-link"
+           data-category="Site-Wide Custom Events" data-label="Footer Google Developers Link"><img class="devsite-footer-linkbox-logo"
+               src="https://developers.google.com/_static/9abbcf9aa7/images/redesign-14/lockup-color-knockout.png"
+               alt="Google Developers"></a><ul class="devsite-footer-linkbox-list"><li class="devsite-footer-linkbox-item"><a href="//developer.android.com/index.html" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Android Link">
+                Android
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//developer.chrome.com/home" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Chrome Link">
+                Chrome
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//firebase.google.com" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Firebase Link">
+                Firebase
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//cloud.google.com" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Cloud Link">
+                Google Cloud Platform
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//developers.google.com/products/" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Products Link">
+                All Products
+            </a></li></ul></li></ul></nav></footer><footer class="devsite-utility-footer"><nav class="devsite-utility-footer-nav devsite-nav devsite-full-site-width"><div class="devsite-utility-footer-nav-left"><form class="devsite-utility-footer-language" action="/i18n/setlang/" method="post"><input type="hidden" name="xsrf_token" value="N0pkegXp89y65JBTuYLcWuavbImRRTAuoLWzieq_neA6MTUxOTkxNzc4NTM4MTQyMA" /><input type="hidden" name="next" value="/machine-learning/crash-course/18th-century-literature"><select class="devsite-utility-footer-language-select kd-select" name="language"
+                track-type="languageSelector" track-name="click"><option value="id"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="id">
+            Bahasa Indonesia
+          </option><option value="de"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="de">
+            Deutsch
+          </option><option value="en"
+                 selected="selected" 
+                track-type="languageSelector" track-name="changed"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="en">
+            English
+          </option><option value="es"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="es">
+            español
+          </option><option value="es-419"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="es-419">
+            Español (América Latina)
+          </option><option value="fr"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="fr">
+            français
+          </option><option value="pt-br"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="pt-br">
+            Português Brasileiro
+          </option><option value="ru"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="ru">
+            Русский
+          </option><option value="ja"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="ja">
+            日本語
+          </option><option value="zh-cn"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="zh-cn">
+            简体中文
+          </option><option value="ko"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="ko">
+            한국어
+          </option></select></form><span class="devsite-utility-footer-links"><a class="devsite-utility-footer-link gc-analytics-event"
+           href="https://developers.google.com/terms/site-terms"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer terms link"
+           data-footer-link-id="terms"
+           >Terms
+         </a><a class="devsite-utility-footer-link gc-analytics-event"
+           href="https://www.google.com/policies/privacy/"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer privacy link"
+           data-footer-link-id="privacy"
+           >Privacy
+         </a></span></div><div class="devsite-utility-footer-nav-right"><div class="devsite-utility-footer-newsletter-signup-text">
+        Sign up for the Google Developers newsletter
+      </div><a class="button button-primary devsite-utility-footer-newsletter-signup-button"
+         href="https://services.google.com/fb/forms/googledevelopersnewsletter/?utm_medium=referral&amp;utm_source=google-products&amp;utm_team=googledevs&amp;utm_campaign=201611-newsletter-launch">
+        
+        Subscribe
+      </a></div></nav></footer><div class="devsite-feedback-dialog devsite-dialog"><div class="devsite-dialog-contents"><h3>Send feedback about...</h3><div class="devsite-feedback-item"><a data-type="documentation" class="gc-analytics-event"
+           data-category="Site-Wide Custom Events" data-label="Docs Feedback Image"
+           track-type="feedback" track-name="feedbackDocIcon" track-metadata-position="header"><div class="devsite-feedback-item-icon-container"><div class="devsite-feedback-item-icon-white devsite-feedback-item-icon-docs
+                        material-icons"></div></div></a><div class="devsite-feedback-item-name">
+          
+          This page
+        </div><div class="devsite-feedback-item-description"><a data-type="documentation" tabindex="0" class="gc-analytics-event"
+             data-category="Site-Wide Custom Events" data-label="Docs Feedback Text"
+             track-type="feedback" track-name="feedbackDocText" track-metadata-position="header">
+            
+            Documentation feedback
+          </a></div></div><div class="devsite-feedback-item"><a data-type="product" tabindex="0" class="gc-analytics-event"
+           data-category="Site-Wide Custom Events" data-label="Product Feedback Image"
+           track-type="feedback" track-name="feedbackProductIcon" track-metadata-position="header"
+         ><img class="devsite-feedback-item-icon"
+               src="https://developers.google.com/_static/9abbcf9aa7/images/feedback/google_56px.svg"></a><div class="devsite-feedback-item-name">
+        Machine Learning Crash Course
+        </div><div class="devsite-feedback-item-description"><a data-type="product" tabindex="0" class="gc-analytics-event"
+             data-category="Site-Wide Custom Events" data-label="Product Feedback Text"
+             track-type="feedback" track-name="feedbackProductText" track-metadata-position="header"
+           >
+            
+            Product feedback
+          </a></div></div></div><div class="devsite-dialog-buttons"><button type="button" class="devsite-feedback-cancel button-white gc-analytics-event"
+              data-category="Site-Wide Custom Events" data-label="Cancel Feedback Button"
+              track-type="feedback" track-name="cancelFeedbackButton"
+              track-metadata-position="header">
+        
+        Cancel
+      </button></div></div><script>
+  $(document).ready(function() {
+    new devsite.feedback.Widget({
+        'product_id': '5005867',
+        'bucket': '',
+        'context': '',
+        'version': 'devsite-20180226-r03-rc00.default'
+      },
+      document.querySelectorAll('.devsite-feedback-button'),
+      'en',
+      document.querySelector('.devsite-site-mask'),
+      document.querySelector('.devsite-feedback-dialog'),
+      document.querySelector('.devsite-feedback-cancel'),
+      document.querySelectorAll('.devsite-feedback-item a:not([href])')
+    );
+  });
+  </script></div><script async defer src="//www.gstatic.com/feedback/api.js"></script><script src="https://developers.google.com/_static2/9abbcf9aa7/jsi18n/"></script><script src="https://developers.google.com/_static/9abbcf9aa7/js/script_foot_closure.js"></script><script src="https://developers.google.com/_static/9abbcf9aa7/js/script_foot.js"></script><script>
+        (function($) {
+          
+          devsite.devsite.Init($, {'FULL_SITE_SEARCH_ENABLED': 1, 'ENABLE_BLOCKED_VIDEO_PLACEHOLDER': 0, 'VERSION_HASH': '9abbcf9aa7', 'SITE_NAME': 'devsite', 'HISTORY_ENABLED': 1, 'ENABLE_BLOCKED_LINK_TOOLTIP': 0, 'ALLOWED_HOSTS': ['.android.com', '.anvato.com', '.apigee.com', '.appspot.com', '.dialogflow.com', '.gonglchuangl.net', '.google.cn', '.google.com', '.googleplex.com', '.nest.com', '.openthread.io', '.openweave.io', '.orbitera.com', '.tensorflow.org'], 'BLOCK_RSS_FEEDS': 0, 'SCRIPTSAFE_DOMAIN': 'google-developers.appspot.com', 'VTAGS_ENABLED': 0},
+                               '[]','en',
+                               true, '',
+                               {"f62218c009ec029abef196bba5aa34cf": true, "8de7a048f21618359bd37f5ce44be073": false, "098dafe57affddc137df300142652cfd": false, "8e03e230de0bd8a6fe173fdf172e8b3f": true, "cb025a64a50094835616312f4774a53d": true, "51470233c56fc1fde50f00b73c52b216": false, "d169d485cf24243a263783dbe42029b1": true, "039e5d84b87fd75807ffb37b7f1bbf2c": true, "752953480de00a336d911a46966cc16d": false, "700def1a83e356c06c0925afb05de4b0": false, "6749dcb526ce9bde6993550c7d928d24": true}, '/machine-learning/crash-course/',
+                               'https://developers.google.com/');
+        })(jQuery);
+
+        
+        devsite.localInit = function() {
+          
+        };
+
+      </script><script>
+      $('.devsite-utility-footer-language-select').each(function() {
+        $(this).change(function(){$('.devsite-utility-footer-language').submit();});
+      });
+      </script></div><span id="devsite-request-elapsed" data-request-elapsed="197.020053864"></span></body></html>

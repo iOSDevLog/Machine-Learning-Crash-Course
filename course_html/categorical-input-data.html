@@ -1,0 +1,773 @@
+
+
+
+
+
+<!DOCTYPE html><html lang="en"
+      class="chekov"><head><script>var a=window.devsite||{};window.devsite=a;a.readyCallbacks=[];window.devsite.readyCallbacks=a.readyCallbacks;a.ready=function(b){a.readyCallbacks.push(b)};window.devsite.ready=a.ready;
+</script><meta charset="utf-8"><meta name="xsrf_token" content="kSO7XvUKRGM8AHRgA9JpTIuSNHdjiYK7dYCUqs7Y4h86MTUxOTkxNzc0MDUzNDgxMA" /><link rel="canonical" href="https://developers.google.com/machine-learning/crash-course/embeddings/categorical-input-data"><link rel="alternate" href="https://developers.google.com/machine-learning/crash-course/embeddings/categorical-input-data" hreflang="en"><link rel="alternate" href="https://developers.google.com/machine-learning/crash-course/embeddings/categorical-input-data?hl=es-419" hreflang="es-419"><link rel="alternate" href="https://developers.google.com/machine-learning/crash-course/embeddings/categorical-input-data?hl=fr" hreflang="fr"><link rel="alternate" href="https://developers.google.com/machine-learning/crash-course/embeddings/categorical-input-data?hl=ko" hreflang="ko"><link rel="alternate" href="https://developers.google.com/machine-learning/crash-course/embeddings/categorical-input-data?hl=zh-cn" hreflang="zh-Hans"><link rel="alternate" href="https://developers.google.cn/machine-learning/crash-course/embeddings/categorical-input-data" hreflang="en-cn"><link rel="alternate" href="https://developers.google.cn/machine-learning/crash-course/embeddings/categorical-input-data?hl=es-419" hreflang="es-419-cn"><link rel="alternate" href="https://developers.google.cn/machine-learning/crash-course/embeddings/categorical-input-data?hl=fr" hreflang="fr-cn"><link rel="alternate" href="https://developers.google.cn/machine-learning/crash-course/embeddings/categorical-input-data?hl=ko" hreflang="ko-cn"><link rel="alternate" href="https://developers.google.cn/machine-learning/crash-course/embeddings/categorical-input-data?hl=zh-cn" hreflang="zh-Hans-cn"><link rel="alternate" href="https://developers.google.com/machine-learning/crash-course/embeddings/categorical-input-data" hreflang="x-default"><link rel="shortcut icon" href="https://developers.google.com/_static/9abbcf9aa7/images/favicon.png"><link rel="apple-touch-icon" href="https://developers.google.com/_static/9abbcf9aa7/images/touch-icon.png"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet"
+      href="//fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700|Material+Icons"><link rel="stylesheet"
+        href="https://developers.google.com/_static/9abbcf9aa7/css/devsite-white.css"><link rel="search"
+        type="application/opensearchdescription+xml"
+        title="Google Developers"
+        href="https://developers.google.com/s/opensearch.xml"><script src="https://developers.google.com/_static/9abbcf9aa7/js/jquery-bundle.js"></script><meta property="og:site_name" content="Google Developers"><meta property="og:type" content="website"><meta property="og:url" content="https://developers.google.com/machine-learning/crash-course/embeddings/categorical-input-data"><meta property="og:locale" content="en"><script>
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script><title>Embeddings: Categorical Input Data &nbsp;|&nbsp; Machine Learning Crash Course
+      &nbsp;|&nbsp; Google Developers</title><meta property="og:title" content="Embeddings: Categorical Input Data &nbsp;|&nbsp; Machine Learning Crash Course
+      &nbsp;|&nbsp; Google Developers"><meta property="og:image"
+          content="https://developers.google.com/machine-learning/crash-course/images/mlcc-hero.png"><meta property="og:image:secure_url"
+          content="https://developers.google.com/machine-learning/crash-course/images/mlcc-hero.png"><meta property="og:image:width"
+          content="1200"><meta property="og:image:height"
+          content="675"></head><body class="
+               devsite-doc-page
+               
+               
+               
+               devsite-header-no-upper-tabs
+               "
+        id="top_of_page"><div class="devsite-wrapper"><div class="devsite-top-section-wrapper
+            "><header class="devsite-top-section nocontent"><div class="devsite-top-logo-row-wrapper-wrapper"><div class="devsite-top-logo-row-wrapper"><div class="devsite-top-logo-row devsite-full-site-width"><button type="button" class="devsite-expand-section-nav devsite-header-icon-button
+                                       button-flat material-icons gc-analytics-event"
+                  data-category="Site-Wide Custom Events" data-label="Hamburger menu"></button><div class="devsite-product-name-wrapper"><span class="devsite-product-name"><ul class="devsite-breadcrumb-list"><li class="devsite-breadcrumb-item"><a href="https://developers.google.com/machine-learning/crash-course/" class="devsite-breadcrumb-link gc-analytics-event"
+       data-category="Site-Wide Custom Events" data-label="Upper Header"
+       data-value="1">
+    
+    
+      
+        Machine Learning Crash Course
+      
+    
+    
+    </a></li></ul></span></div><div class="devsite-header-upper-tabs"></div><form class="devsite-search-form"
+                action="https://developers.google.com/s/results/"
+                method="GET"
+                id="top-search"
+                search-placeholder='Search'><div id="searchbox" class="devsite-searchbox"><input placeholder='Search'
+         
+         type="text"
+         class="devsite-search-field devsite-search-query"
+         name="q"
+         value=""
+         autocomplete="off"
+         
+         aria-label="Search box"><div class="devsite-search-image material-icons"></div></div><input type="hidden"
+       name="p"
+       id="search_project"
+       value="/machine-learning/crash-course/"
+       data-project-name="Machine Learning Crash Course"
+       data-project-path="/machine-learning/crash-course/"
+       data-query-match=""><input type="hidden" class="suggest-project" value="Machine Learning Crash Course" /><div class="suggest-project-metadata" data-home_url="/machine-learning/crash-course/" data-path="/machine-learning/crash-course/" data-name="Machine Learning Crash Course" ></div></form><a class="devsite-header-link devsite-top-button button gc-analytics-event"
+               href="https://developers.google.com/products/"
+               data-category="Site-Wide Custom Events"
+               data-label="Site header link"
+               track-type="navigateTo"
+               track-name="all products"
+               track-metadata-position="nav"><div class="devsite-header-link-label">All Products</div></a><button type="button" class="devsite-search-button devsite-header-icon-button button-flat
+                                       material-icons"></button><a href="https://www.google.com/accounts/ServiceLogin?passive=true&continue=https%3A%2F%2Fdevelopers.google.com%2Fmachine-learning%2Fcrash-course%2Fembeddings%2Fcategorical-input-data%3Frefresh%3D1&service=ahsid"
+   class="devsite-user-signin devsite-top-button button gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Sign in button">
+  
+  Sign in
+</a></div></div></div><div class="devsite-collapsible-section"><div class="devsite-header-background devsite-full-site-width"><div class="devsite-doc-set-nav-row devsite-full-site-width"><nav class="devsite-doc-set-nav devsite-nav devsite-overflow-tabs-scroll-wrapper"><ul class="devsite-doc-set-nav-tab-list devsite-overflow-tabs-scroll"><li class="devsite-doc-set-nav-tab-container"><a href="https://developers.google.com/machine-learning/crash-course/"
+         class="
+                devsite-doc-set-nav-tab gc-analytics-event"
+         
+       
+         data-category="Site-Wide Custom Events"
+       
+         data-label="Tab: Overview"
+       >
+        Overview
+      </a></li><li class="devsite-doc-set-nav-tab-container"><a href="https://developers.google.com/machine-learning/crash-course/prereqs-and-prework"
+         class="devsite-doc-set-nav-active
+                devsite-doc-set-nav-tab gc-analytics-event"
+         aria-label="Course, selected"
+       
+         data-category="Site-Wide Custom Events"
+       
+         data-label="Tab: Course"
+       >
+        Course
+      </a></li><li class="devsite-doc-set-nav-tab-container"><a href="https://developers.google.com/machine-learning/crash-course/exercises"
+         class="
+                devsite-doc-set-nav-tab gc-analytics-event"
+         
+       
+         data-category="Site-Wide Custom Events"
+       
+         data-label="Tab: Exercises"
+       >
+        Exercises
+      </a></li><li class="devsite-doc-set-nav-tab-container"><a href="https://developers.google.com/machine-learning/crash-course/glossary"
+         class="
+                devsite-doc-set-nav-tab gc-analytics-event"
+         
+       
+         data-category="Site-Wide Custom Events"
+       
+         data-label="Tab: Glossary"
+       >
+        Glossary
+      </a></li><button type="button" id="devsite-feedback-project"
+          class="devsite-feedback-button devsite-top-button gc-analytics-event"
+          data-category="Site-Wide Custom Events" data-label="Send Feedback Button"
+          track-type="feedback" track-name="sendFeedbackLink" track-metadata-position="header">
+  
+  Send feedback
+  </button></ul></nav></div></div></div></header><script>
+    if (window.jQuery) {
+      $(document).ready(function() {
+        if (window.devsite && window.devsite.search) {
+          
+          window.devsite.search.init('en')
+        }
+      });
+    }
+  </script></div><div id="gc-wrapper"itemscope itemtype="http://schema.org/Article"><input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {&quot;dimension6&quot;: &quot;en&quot;, &quot;dimension4&quot;: &quot;Machine Learning Crash Course&quot;, &quot;dimension5&quot;: &quot;en&quot;, &quot;dimension3&quot;: false, &quot;dimension1&quot;: &quot;Signed out&quot;, &quot;dimension8&quot;: null}, &quot;gaid&quot;: &quot;UA-24532603-1&quot;}"><input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {}, &quot;gaid&quot;: &quot;UA-76465953-5&quot;}"><script>
+      var dataLayer = [{"freeTrialEligibleUser": "False", "userCountry": "JP", "language": {"requested": "en", "served": "en"}, "projectName": "Machine Learning Crash Course", "scriptsafe": null, "signedIn": "False", "internalUser": "False"}];
+    </script>
+
+      
+        <div class="devsite-site-mask"></div>
+        
+  
+
+<nav class="devsite-nav-responsive devsite-nav nocontent" tabindex="0">
+  
+  <div class="devsite-nav-responsive-tabs-panel">
+    
+      
+
+
+
+<nav class="devsite-nav-responsive-tabs devsite-nav">
+  <ul class="devsite-nav-list">
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+    
+      <a 
+           href="https://developers.google.com/machine-learning/crash-course/"
+         
+         class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event
+                "
+         data-category="Site-Wide Custom Events" data-label="Responsive Tab: Overview">
+        Overview
+      </a>
+      
+    
+    </li>
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+    
+      <span class="devsite-nav-responsive-forward devsite-nav-responsive-tab devsite-nav-title
+                   devsite-nav-active gc-analytics-event"
+            data-category="Site-Wide Custom Events" data-label="Responsive Tab: Course"
+            tabindex="0">
+        Course
+      </span>
+    
+    </li>
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+    
+      <a 
+           href="https://developers.google.com/machine-learning/crash-course/exercises"
+         
+         class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event
+                "
+         data-category="Site-Wide Custom Events" data-label="Responsive Tab: Exercises">
+        Exercises
+      </a>
+      
+    
+    </li>
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+    
+      <a 
+           href="https://developers.google.com/machine-learning/crash-course/glossary"
+         
+         class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event
+                "
+         data-category="Site-Wide Custom Events" data-label="Responsive Tab: Glossary">
+        Glossary
+      </a>
+      
+    
+    </li>
+  
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+      <a href="https://developers.google.com/products/"
+         class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+         data-label="Responsive Tab: all_products">
+        All Products
+      </a>
+    </li>
+  
+  </ul>
+</nav>
+
+    
+  </div>
+  
+  
+  <div class="devsite-nav-responsive-sidebar-panel">
+    
+    <div class="devsite-nav-responsive-back" tabindex="0"></div>
+    
+    <nav class="devsite-nav-responsive-sidebar">
+      <ul class="devsite-nav-list devsite-nav-expandable"><li class="devsite-nav-item devsite-nav-item-heading"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Introduction</span></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/prereqs-and-prework" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Prerequisites and Prework</a></li><li class="devsite-nav-item devsite-nav-item-heading"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">ML Concepts</span></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/ml-intro" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Introduction to ML (3 min)</a></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Framing (15 min), click to expand/collapse" role="link">Framing (15 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/framing/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/framing/ml-terminology" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">ML Terminology</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/framing/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Descending into ML (20 min), click to expand/collapse" role="link">Descending into ML (20 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/descending-into-ml/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/descending-into-ml/linear-regression" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Linear Regression</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/descending-into-ml/training-and-loss" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Training and Loss</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/descending-into-ml/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Reducing Loss (60 min), click to expand/collapse" role="link">Reducing Loss (60 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/an-iterative-approach" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">An Iterative Approach</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/gradient-descent" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Gradient Descent</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/learning-rate" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Learning Rate</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/fitter/graph" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Optimizing Learning Rate</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/stochastic-gradient-descent" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Stochastic Gradient Descent</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/playground-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercise</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="First Steps with TF (60 min), click to expand/collapse" role="link">First Steps with TF (60 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/first-steps-with-tensorflow/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/first-steps-with-tensorflow/toolkit" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Toolkit</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/first-steps-with-tensorflow/programming-exercises" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercises</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Generalization (15 min), click to expand/collapse" role="link">Generalization (15 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/generalization/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/generalization/peril-of-overfitting" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Peril of Overfitting</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Training and Test Sets (25 min), click to expand/collapse" role="link">Training and Test Sets (25 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/training-and-test-sets/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/training-and-test-sets/splitting-data" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Splitting Data</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/training-and-test-sets/playground-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Validation (40 min), click to expand/collapse" role="link">Validation (40 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/validation/check-your-intuition" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Intuition</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/validation/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/validation/another-partition" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Another Partition</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/validation/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Representation (65 min), click to expand/collapse" role="link">Representation (65 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/representation/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/representation/feature-engineering" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Feature Engineering</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/representation/qualities-of-good-features" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Qualities of Good Features</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/representation/cleaning-data" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Cleaning Data</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/representation/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Feature Crosses (70 min), click to expand/collapse" role="link">Feature Crosses (70 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/feature-crosses/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/feature-crosses/encoding-nonlinearity" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Encoding Nonlinearity</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/feature-crosses/crossing-one-hot-vectors" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Crossing One-Hot Vectors</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/feature-crosses/playground-exercises" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercises</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/feature-crosses/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/feature-crosses/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Regularization: Simplicity (40 min), click to expand/collapse" role="link">Regularization: Simplicity (40 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/playground-exercise-overcrossing" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercise: Overcrossing?</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/l2-regularization" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">L2 Regularization</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/lambda" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Lambda</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/playground-exercise-examining-l2-regularization" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercise: Examining L2 Regularization</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Logistic Regression (20 min), click to expand/collapse" role="link">Logistic Regression (20 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/logistic-regression/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/logistic-regression/calculating-a-probability" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Calculating a Probability</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/logistic-regression/model-training" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Model Training</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Classification (90 min), click to expand/collapse" role="link">Classification (90 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/thresholding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Thresholding</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/true-false-positive-negative" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">True vs. False; Positive vs. Negative</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/accuracy" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Accuracy</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/precision-and-recall" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Precision and Recall</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/check-your-understanding-accuracy-precision-recall" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding: Accuracy, Precision, Recall</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">ROC and AUC</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/check-your-understanding-roc-and-auc" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding: ROC and AUC</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/prediction-bias" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Prediction Bias</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Regularization: Sparsity (45 min), click to expand/collapse" role="link">Regularization: Sparsity (45 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/l1-regularization" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">L1 Regularization</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/playground-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercise</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Introduction to Neural Nets (55 min), click to expand/collapse" role="link">Introduction to Neural Nets (55 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/introduction-to-neural-networks/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/introduction-to-neural-networks/anatomy" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Anatomy</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/introduction-to-neural-networks/playground-exercises" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercises</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/introduction-to-neural-networks/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Training Neural Nets (40 min), click to expand/collapse" role="link">Training Neural Nets (40 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/training-neural-networks/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/training-neural-networks/best-practices" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Best Practices</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/training-neural-networks/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Multi-Class Neural Nets (50 min), click to expand/collapse" role="link">Multi-Class Neural Nets (50 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/multi-class-neural-networks/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/multi-class-neural-networks/one-vs-all" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">One vs. All</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/multi-class-neural-networks/softmax" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Softmax</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/multi-class-neural-networks/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Embeddings (80 min), click to expand/collapse" role="link">Embeddings (80 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-expanded material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0"></a><ul class="devsite-nav-section devsite-nav-section-expanded"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/embeddings/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/embeddings/motivation-from-collaborative-filtering" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Motivation from Collaborative Filtering</a></li><li class="devsite-nav-item devsite-nav-active"><a href="https://developers.google.com/machine-learning/crash-course/embeddings/categorical-input-data" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Categorical Input Data</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/embeddings/translating-to-a-lower-dimensional-space" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Translating to a Lower-Dimensional Space</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/embeddings/obtaining-embeddings" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Obtaining Embeddings</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/embeddings/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-heading"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">ML Engineering</span></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/production-ml-systems" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Production ML Systems (3 min)</a></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Static vs. Dynamic Training (7 min), click to expand/collapse" role="link">Static vs. Dynamic Training (7 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/static-vs-dynamic-training/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/static-vs-dynamic-training/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Static vs. Dynamic Inference (7 min), click to expand/collapse" role="link">Static vs. Dynamic Inference (7 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/static-vs-dynamic-inference/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/static-vs-dynamic-inference/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Data Dependencies (14 min), click to expand/collapse" role="link">Data Dependencies (14 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/data-dependencies/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/data-dependencies/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-heading"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">ML Real World Examples</span></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/cancer-prediction" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Cancer Prediction (5 min)</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/18th-century-literature" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">18th Century Literature (5 min)</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/real-world-guidelines" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Real-World Guidelines (2 min)</a></li><li class="devsite-nav-item devsite-nav-item-heading"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Conclusion</span></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/next-steps" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Next Steps</a></li></ul>
+    </nav>
+  </div>
+  
+</nav>
+
+
+        <div class="devsite-main-content clearfix">
+
+        
+        
+
+        
+  
+  
+    
+    
+      
+  <nav class="devsite-section-nav devsite-nav nocontent">
+    <ul class="devsite-nav-list devsite-nav-expandable"><li class="devsite-nav-item devsite-nav-item-heading"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Introduction</span></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/prereqs-and-prework" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Prerequisites and Prework</a></li><li class="devsite-nav-item devsite-nav-item-heading"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">ML Concepts</span></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/ml-intro" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Introduction to ML (3 min)</a></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Framing (15 min), click to expand/collapse" role="link">Framing (15 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/framing/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/framing/ml-terminology" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">ML Terminology</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/framing/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Descending into ML (20 min), click to expand/collapse" role="link">Descending into ML (20 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/descending-into-ml/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/descending-into-ml/linear-regression" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Linear Regression</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/descending-into-ml/training-and-loss" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Training and Loss</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/descending-into-ml/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Reducing Loss (60 min), click to expand/collapse" role="link">Reducing Loss (60 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/an-iterative-approach" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">An Iterative Approach</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/gradient-descent" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Gradient Descent</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/learning-rate" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Learning Rate</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/fitter/graph" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Optimizing Learning Rate</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/stochastic-gradient-descent" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Stochastic Gradient Descent</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/playground-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercise</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="First Steps with TF (60 min), click to expand/collapse" role="link">First Steps with TF (60 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/first-steps-with-tensorflow/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/first-steps-with-tensorflow/toolkit" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Toolkit</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/first-steps-with-tensorflow/programming-exercises" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercises</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Generalization (15 min), click to expand/collapse" role="link">Generalization (15 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/generalization/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/generalization/peril-of-overfitting" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Peril of Overfitting</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Training and Test Sets (25 min), click to expand/collapse" role="link">Training and Test Sets (25 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/training-and-test-sets/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/training-and-test-sets/splitting-data" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Splitting Data</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/training-and-test-sets/playground-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Validation (40 min), click to expand/collapse" role="link">Validation (40 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/validation/check-your-intuition" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Intuition</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/validation/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/validation/another-partition" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Another Partition</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/validation/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Representation (65 min), click to expand/collapse" role="link">Representation (65 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/representation/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/representation/feature-engineering" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Feature Engineering</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/representation/qualities-of-good-features" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Qualities of Good Features</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/representation/cleaning-data" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Cleaning Data</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/representation/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Feature Crosses (70 min), click to expand/collapse" role="link">Feature Crosses (70 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/feature-crosses/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/feature-crosses/encoding-nonlinearity" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Encoding Nonlinearity</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/feature-crosses/crossing-one-hot-vectors" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Crossing One-Hot Vectors</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/feature-crosses/playground-exercises" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercises</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/feature-crosses/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/feature-crosses/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Regularization: Simplicity (40 min), click to expand/collapse" role="link">Regularization: Simplicity (40 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/playground-exercise-overcrossing" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercise: Overcrossing?</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/l2-regularization" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">L2 Regularization</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/lambda" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Lambda</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/playground-exercise-examining-l2-regularization" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercise: Examining L2 Regularization</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Logistic Regression (20 min), click to expand/collapse" role="link">Logistic Regression (20 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/logistic-regression/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/logistic-regression/calculating-a-probability" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Calculating a Probability</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/logistic-regression/model-training" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Model Training</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Classification (90 min), click to expand/collapse" role="link">Classification (90 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/thresholding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Thresholding</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/true-false-positive-negative" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">True vs. False; Positive vs. Negative</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/accuracy" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Accuracy</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/precision-and-recall" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Precision and Recall</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/check-your-understanding-accuracy-precision-recall" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding: Accuracy, Precision, Recall</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">ROC and AUC</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/check-your-understanding-roc-and-auc" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding: ROC and AUC</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/prediction-bias" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Prediction Bias</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/classification/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Regularization: Sparsity (45 min), click to expand/collapse" role="link">Regularization: Sparsity (45 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/l1-regularization" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">L1 Regularization</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/playground-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercise</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Introduction to Neural Nets (55 min), click to expand/collapse" role="link">Introduction to Neural Nets (55 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/introduction-to-neural-networks/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/introduction-to-neural-networks/anatomy" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Anatomy</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/introduction-to-neural-networks/playground-exercises" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Playground Exercises</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/introduction-to-neural-networks/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Training Neural Nets (40 min), click to expand/collapse" role="link">Training Neural Nets (40 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/training-neural-networks/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/training-neural-networks/best-practices" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Best Practices</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/training-neural-networks/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Multi-Class Neural Nets (50 min), click to expand/collapse" role="link">Multi-Class Neural Nets (50 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/multi-class-neural-networks/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/multi-class-neural-networks/one-vs-all" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">One vs. All</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/multi-class-neural-networks/softmax" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Softmax</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/multi-class-neural-networks/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Embeddings (80 min), click to expand/collapse" role="link">Embeddings (80 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-expanded material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0"></a><ul class="devsite-nav-section devsite-nav-section-expanded"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/embeddings/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/embeddings/motivation-from-collaborative-filtering" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Motivation from Collaborative Filtering</a></li><li class="devsite-nav-item devsite-nav-active"><a href="https://developers.google.com/machine-learning/crash-course/embeddings/categorical-input-data" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Categorical Input Data</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/embeddings/translating-to-a-lower-dimensional-space" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Translating to a Lower-Dimensional Space</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/embeddings/obtaining-embeddings" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Obtaining Embeddings</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/embeddings/programming-exercise" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programming Exercise</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-heading"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">ML Engineering</span></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/production-ml-systems" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Production ML Systems (3 min)</a></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Static vs. Dynamic Training (7 min), click to expand/collapse" role="link">Static vs. Dynamic Training (7 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/static-vs-dynamic-training/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/static-vs-dynamic-training/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Static vs. Dynamic Inference (7 min), click to expand/collapse" role="link">Static vs. Dynamic Inference (7 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/static-vs-dynamic-inference/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/static-vs-dynamic-inference/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0" aria-label="Data Dependencies (14 min), click to expand/collapse" role="link">Data Dependencies (14 min)</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0" aria-hidden="true"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/data-dependencies/video-lecture" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Video Lecture</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/data-dependencies/check-your-understanding" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Check Your Understanding</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-heading"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">ML Real World Examples</span></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/cancer-prediction" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Cancer Prediction (5 min)</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/18th-century-literature" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">18th Century Literature (5 min)</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/real-world-guidelines" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Real-World Guidelines (2 min)</a></li><li class="devsite-nav-item devsite-nav-item-heading"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Conclusion</span></li><li class="devsite-nav-item"><a href="https://developers.google.com/machine-learning/crash-course/next-steps" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Next Steps</a></li></ul>
+  </nav>
+
+    
+
+    
+  <nav class="devsite-page-nav devsite-nav"></nav>
+
+
+      <article class="devsite-article">
+        <article class="devsite-article-inner">
+  
+          
+  
+
+
+
+  
+  <nav class="devsite-breadcrumb-nav devsite-nav">
+    
+
+
+<ul class="devsite-breadcrumb-list">
+  
+  <li class="devsite-breadcrumb-item">
+    
+    
+    <a href="https://developers.google.com/products/" class="devsite-breadcrumb-link gc-analytics-event"
+       data-category="Site-Wide Custom Events" data-label="Breadcrumbs"
+       data-value="1">
+    
+    
+      Products
+    
+    
+    </a>
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item">
+    
+    
+    <div class="devsite-breadcrumb-guillemet material-icons"></div>
+    
+    
+    <a href="https://developers.google.com/machine-learning/crash-course/" class="devsite-breadcrumb-link gc-analytics-event"
+       data-category="Site-Wide Custom Events" data-label="Breadcrumbs"
+       data-value="2">
+    
+    
+      Crash Course
+    
+    
+    </a>
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item">
+    
+    
+    <div class="devsite-breadcrumb-guillemet material-icons"></div>
+    
+    
+    <a href="https://developers.google.com/machine-learning/crash-course/prereqs-and-prework" class="devsite-breadcrumb-link gc-analytics-event"
+       data-category="Site-Wide Custom Events" data-label="Breadcrumbs"
+       data-value="3">
+    
+    
+      Course
+    
+    
+    </a>
+    
+  </li>
+  
+</ul>
+
+  </nav>
+  
+  
+  <h1 itemprop="name" class="devsite-page-title">
+    Embeddings: Categorical Input Data
+  </h1>
+  
+  
+  <nav class="devsite-page-nav-embedded devsite-nav"></nav>
+  
+  <div class="devsite-article-body clearfix
+            "
+       itemprop="articleBody">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://developers.google.com/_static/9abbcf9aa7/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
+<link rel="stylesheet" type="text/css" href="https://developers.google.com/machine-learning/crash-course/cc.css">
+<link rel="stylesheet" type="text/css" href="https://developers.google.com/machine-learning/crash-course/vplus-slides.css"></p>
+
+<aside class="note time"><strong>Estimated Time:</strong> 10 minutes</aside>
+
+<p><b>Categorical data</b> refers to input features that represent one or more
+discrete items from a finite set of choices. For example, it can be the set of
+movies a user has watched, the set of words in a document, or the occupation of
+a person.</p>
+<p>Categorical data is most efficiently represented via <b>sparse tensors</b>,
+which are tensors with very few non-zero elements. For example, if we're building
+a movie recommendation model, we can assign a unique ID to each possible movie,
+and then represent each user by a sparse tensor of the movies they have watched,
+as shown in Figure 3.</p>
+<p>
+<img src="https://developers.google.com/machine-learning/crash-course/images/InputRepresentationWithValues.png"
+width="500px" alt="A sample input for our movie recommendation problem."/>
+</p>
+
+<p><b>Figure 3. Data for our movie recommendation problem.</b></p>
+
+<p>Each row of the matrix in Figure 3 is an example capturing a user's movie-viewing history,
+and is represented as a sparse tensor because each user only watches a small fraction of
+all possible movies. The last row corresponds to the sparse tensor [1, 3,
+999999], using the vocabulary indices shown above the movie icons.</p>
+<p>Likewise one can represent words, sentences, and documents as sparse vectors
+where each word in the vocabulary plays a role similar to the movies in our
+recommendation example.</p>
+<p>In order to use such <a href="https://developers.google.com/machine-learning/crash-course/representation/video-lecture">
+representations</a> within a machine learning system, we need a way to represent
+each sparse vector as a vector of numbers so that semantically similar items
+(movies or words) have similar distances in the vector space. But how do you
+represent a word as a vector of numbers?</p>
+<p>The simplest way is to define a giant input layer with a node for every
+word in your vocabulary, or at least a node for every word that appears in
+your data. If 500,000 unique words appear in your data, you could represent a
+word with a length 500,000 vector and assign each word to a slot in the
+vector.</p>
+<p>If you assign "horse" to index 1247, then to feed "horse" into your network
+you might copy a 1 into the 1247th input node and 0s into all the rest. This
+sort of representation is called a <strong>one-hot encoding</strong>, because only one index
+has a non-zero value.</p>
+<p>More typically your vector might contain counts of the words in a larger chunk
+of text. This is known as a "bag of words" representation. In a bag-of-words
+vector, several of the 500,000 nodes would have non-zero value.</p>
+<p>But however you determine the non-zero values, one-node-per-word gives
+you very <i>sparse</i> input vectors—very large vectors with relatively few
+non-zero values. Sparse representations have a couple of problems that can
+make it hard for a model to learn effectively.</p>
+<h2 class="hide-from-toc">Size of Network</h2>
+
+<p>Huge input vectors mean a super-huge number of weights for a neural network.
+If there are M words in your vocabulary and N nodes in the first layer of the
+network above the input, you have MxN weights to train for that layer. A large
+number of weights causes further problems:</p>
+<ul>
+<li>
+<p><strong>Amount of data</strong>. The more weights in your model, the more data you need to
+train effectively.</p>
+</li>
+<li>
+<p><strong>Amount of computation</strong>. The more weights, the more computation required to
+train and use the model. It's easy to exceed the capabilities of your
+hardware.</p>
+</li>
+</ul>
+<h2 class="hide-from-toc">Lack of Meaningful Relations Between Vectors</h2>
+
+<p>If you feed the pixel values of RGB channels into an image classifier,
+it makes sense to talk about "close" values. Reddish blue is close to pure
+blue, both semantically and in terms of the geometric distance between
+vectors. But a vector with a 1 at index 1247 for "horse" is not any closer to
+a vector with a 1 at index 50,430 for "antelope" than it is to a vector with
+a 1 at index 238 for "television".</p>
+<h2 class="hide-from-toc">The Solution: Embeddings</h2>
+
+<p>The solution to these problems is to use <strong>embeddings</strong>, which translate large
+sparse vectors into a lower-dimensional space that preserves semantic relationships.
+We'll explore embeddings intuitively, conceptually, and programmatically
+in the following sections of this module.</p>
+<aside class='key-term'> <b>Key Terms</b>
+  <table class="columns">
+    <tr>
+      <td> <li><a target="G" href="https://developers.google.com/machine-learning/crash-course/glossary#input_layer">input layer</a></li> </td>
+      <td> <li><a target="G" href="https://developers.google.com/machine-learning/crash-course/glossary#one-hot_encoding">one-hot encoding</a></li> </td>
+    </tr>
+    <tr>
+      <td colspan="2"> <li><a target="G" href="https://developers.google.com/machine-learning/crash-course/glossary#sparse_features">sparse features</a></li> </td>
+    </tr>
+  </table>
+</aside>
+
+
+
+
+
+
+<div style="text-align: center; padding-top: 20px;">
+  <a class="button button-primary" href="https://support.google.com/machinelearningeducation">Help Center</a>
+</div>
+
+
+
+
+  </div>
+  
+
+  
+        
+  
+
+
+
+
+
+<div class="devsite-steps">
+  
+  <div class="devsite-steps-previous devsite-steps-direction">
+    <a class="devsite-steps-link" href="https://developers.google.com/machine-learning/crash-course/embeddings/motivation-from-collaborative-filtering">
+      <div class="devsite-steps-link-direction"
+           
+           aria-label="Click to visit the previous chapter, Motivation from Collaborative Filtering">
+        
+        Previous
+      </div>
+      <span class="devsite-steps-link-title-previous devsite-steps-link-title" aria-hidden="true">
+        <span class="devsite-steps-link-arrow devsite-steps-link-arrow-left material-icons">
+          arrow_back
+        </span>
+        Motivation from Collaborative Filtering
+      </span>
+    </a>
+  </div>
+  
+  
+  <div class="devsite-steps-next devsite-steps-direction">
+    <a class="devsite-steps-link" href="https://developers.google.com/machine-learning/crash-course/embeddings/translating-to-a-lower-dimensional-space">
+      <div class="devsite-steps-link-direction"
+           
+           aria-label="Click to visit the next chapter, Translating to a Lower-Dimensional Space">
+        
+        Next
+      </div>
+      <span class="devsite-steps-link-title-next devsite-steps-link-title" aria-hidden="true">
+        <span class="devsite-steps-link-arrow devsite-steps-link-arrow-right material-icons">
+          arrow_forward
+        </span>
+        Translating to a Lower-Dimensional Space
+      </span>
+    </a>
+  </div>
+  
+</div>
+
+
+
+        
+<div class="devsite-content-footer nocontent">
+  
+  
+    <p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://developers.google.com/terms/site-policies">Site Policies</a>. Java is a registered trademark of Oracle and/or its affiliates.</p>
+  
+
+  
+    
+    <p class="devsite-content-footer-date" itemprop="datePublished"
+       content="2018-02-16T21:42:11.317130">
+      
+      Last updated February 16, 2018.
+    </p>
+  
+
+</div>
+
+        </article>
+      </article>
+  
+
+        </div>
+      
+
+<footer class="devsite-footer-linkboxes nocontent
+               devsite-footer-linkboxes-all-backup
+               devsite-footer-linkboxes-with-sites"><nav class="devsite-full-site-width"><ul class="devsite-footer-linkboxes-list"><li class="devsite-footer-linkbox devsite-footer-linkbox-backup"><h3 class="devsite-footer-linkbox-heading">Connect</h3><ul class="devsite-footer-linkbox-list"><li class="devsite-footer-linkbox-item"><a href="//googledevelopers.blogspot.com" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Blog Link">
+                Blog
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//www.facebook.com/Google-Developers-967415219957038/" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Facebook Link">
+                Facebook
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//plus.google.com/+GoogleDevelopers" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer G+ Link">
+                Google+
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//medium.com/google-developers" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Medium Link">
+                Medium
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//twitter.com/googledevs" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Twitter Link">
+                Twitter
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//www.youtube.com/user/GoogleDevelopers" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer YouTube Link">
+                YouTube
+            </a></li></ul></li><li class="devsite-footer-linkbox devsite-footer-linkbox-backup"><h3 class="devsite-footer-linkbox-heading">Programs</h3><ul class="devsite-footer-linkbox-list"><li class="devsite-footer-linkbox-item"><a href="//www.womentechmakers.com" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Women Techmakers">
+                Women Techmakers
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//developers.google.com/agency/" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Agency">
+                Agency Program
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//developers.google.com/groups/" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Groups">
+                GDG
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//developers.google.com/experts/" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Experts">
+                Google Developers Experts
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//developers.google.com/startups/" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Startups">
+                Startup Launchpad
+            </a></li></ul></li><li class="devsite-footer-linkbox devsite-footer-linkbox-backup"><h3 class="devsite-footer-linkbox-heading">Developer Consoles</h3><ul class="devsite-footer-linkbox-list"><li class="devsite-footer-linkbox-item"><a href="//console.developers.google.com" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Google Developers Console">
+                Google API Console
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//console.cloud.google.com" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Google Cloud Platform Console">
+                Google Cloud Platform Console
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//play.google.com/apps/publish/" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Google Play Console">
+                Google Play Console
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//console.firebase.google.com" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Firebase Console">
+                Firebase Console
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//cast.google.com/publish/" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Cast SDK Developer Console">
+                Cast SDK Developer Console
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//chrome.google.com/webstore/developer/dashboard" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Chrome Web Store Developer Dashboard">
+                Chrome Web Store Dashboard
+            </a></li></ul></li><li class="devsite-footer-linkbox devsite-footer-linkbox-sites"><a href="https://developers.google.com/"
+           class="gc-analytics-event devsite-footer-linkbox-logo-link"
+           data-category="Site-Wide Custom Events" data-label="Footer Google Developers Link"><img class="devsite-footer-linkbox-logo"
+               src="https://developers.google.com/_static/9abbcf9aa7/images/redesign-14/lockup-color-knockout.png"
+               alt="Google Developers"></a><ul class="devsite-footer-linkbox-list"><li class="devsite-footer-linkbox-item"><a href="//developer.android.com/index.html" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Android Link">
+                Android
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//developer.chrome.com/home" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Chrome Link">
+                Chrome
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//firebase.google.com" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Firebase Link">
+                Firebase
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//cloud.google.com" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Cloud Link">
+                Google Cloud Platform
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//developers.google.com/products/" class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Products Link">
+                All Products
+            </a></li></ul></li></ul></nav></footer><footer class="devsite-utility-footer"><nav class="devsite-utility-footer-nav devsite-nav devsite-full-site-width"><div class="devsite-utility-footer-nav-left"><form class="devsite-utility-footer-language" action="/i18n/setlang/" method="post"><input type="hidden" name="xsrf_token" value="kSO7XvUKRGM8AHRgA9JpTIuSNHdjiYK7dYCUqs7Y4h86MTUxOTkxNzc0MDUzNDgxMA" /><input type="hidden" name="next" value="/machine-learning/crash-course/embeddings/categorical-input-data"><select class="devsite-utility-footer-language-select kd-select" name="language"
+                track-type="languageSelector" track-name="click"><option value="id"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="id">
+            Bahasa Indonesia
+          </option><option value="de"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="de">
+            Deutsch
+          </option><option value="en"
+                 selected="selected" 
+                track-type="languageSelector" track-name="changed"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="en">
+            English
+          </option><option value="es"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="es">
+            español
+          </option><option value="es-419"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="es-419">
+            Español (América Latina)
+          </option><option value="fr"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="fr">
+            français
+          </option><option value="pt-br"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="pt-br">
+            Português Brasileiro
+          </option><option value="ru"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="ru">
+            Русский
+          </option><option value="ja"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="ja">
+            日本語
+          </option><option value="zh-cn"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="zh-cn">
+            简体中文
+          </option><option value="ko"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="ko">
+            한국어
+          </option></select></form><span class="devsite-utility-footer-links"><a class="devsite-utility-footer-link gc-analytics-event"
+           href="https://developers.google.com/terms/site-terms"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer terms link"
+           data-footer-link-id="terms"
+           >Terms
+         </a><a class="devsite-utility-footer-link gc-analytics-event"
+           href="https://www.google.com/policies/privacy/"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer privacy link"
+           data-footer-link-id="privacy"
+           >Privacy
+         </a></span></div><div class="devsite-utility-footer-nav-right"><div class="devsite-utility-footer-newsletter-signup-text">
+        Sign up for the Google Developers newsletter
+      </div><a class="button button-primary devsite-utility-footer-newsletter-signup-button"
+         href="https://services.google.com/fb/forms/googledevelopersnewsletter/?utm_medium=referral&amp;utm_source=google-products&amp;utm_team=googledevs&amp;utm_campaign=201611-newsletter-launch">
+        
+        Subscribe
+      </a></div></nav></footer><div class="devsite-feedback-dialog devsite-dialog"><div class="devsite-dialog-contents"><h3>Send feedback about...</h3><div class="devsite-feedback-item"><a data-type="documentation" class="gc-analytics-event"
+           data-category="Site-Wide Custom Events" data-label="Docs Feedback Image"
+           track-type="feedback" track-name="feedbackDocIcon" track-metadata-position="header"><div class="devsite-feedback-item-icon-container"><div class="devsite-feedback-item-icon-white devsite-feedback-item-icon-docs
+                        material-icons"></div></div></a><div class="devsite-feedback-item-name">
+          
+          This page
+        </div><div class="devsite-feedback-item-description"><a data-type="documentation" tabindex="0" class="gc-analytics-event"
+             data-category="Site-Wide Custom Events" data-label="Docs Feedback Text"
+             track-type="feedback" track-name="feedbackDocText" track-metadata-position="header">
+            
+            Documentation feedback
+          </a></div></div><div class="devsite-feedback-item"><a data-type="product" tabindex="0" class="gc-analytics-event"
+           data-category="Site-Wide Custom Events" data-label="Product Feedback Image"
+           track-type="feedback" track-name="feedbackProductIcon" track-metadata-position="header"
+         ><img class="devsite-feedback-item-icon"
+               src="https://developers.google.com/_static/9abbcf9aa7/images/feedback/google_56px.svg"></a><div class="devsite-feedback-item-name">
+        Machine Learning Crash Course
+        </div><div class="devsite-feedback-item-description"><a data-type="product" tabindex="0" class="gc-analytics-event"
+             data-category="Site-Wide Custom Events" data-label="Product Feedback Text"
+             track-type="feedback" track-name="feedbackProductText" track-metadata-position="header"
+           >
+            
+            Product feedback
+          </a></div></div></div><div class="devsite-dialog-buttons"><button type="button" class="devsite-feedback-cancel button-white gc-analytics-event"
+              data-category="Site-Wide Custom Events" data-label="Cancel Feedback Button"
+              track-type="feedback" track-name="cancelFeedbackButton"
+              track-metadata-position="header">
+        
+        Cancel
+      </button></div></div><script>
+  $(document).ready(function() {
+    new devsite.feedback.Widget({
+        'product_id': '5005867',
+        'bucket': '',
+        'context': '',
+        'version': 'devsite-20180226-r03-rc00.default'
+      },
+      document.querySelectorAll('.devsite-feedback-button'),
+      'en',
+      document.querySelector('.devsite-site-mask'),
+      document.querySelector('.devsite-feedback-dialog'),
+      document.querySelector('.devsite-feedback-cancel'),
+      document.querySelectorAll('.devsite-feedback-item a:not([href])')
+    );
+  });
+  </script></div><script async defer src="//www.gstatic.com/feedback/api.js"></script><script src="https://developers.google.com/_static2/9abbcf9aa7/jsi18n/"></script><script src="https://developers.google.com/_static/9abbcf9aa7/js/script_foot_closure.js"></script><script src="https://developers.google.com/_static/9abbcf9aa7/js/script_foot.js"></script><script>
+        (function($) {
+          
+          devsite.devsite.Init($, {'FULL_SITE_SEARCH_ENABLED': 1, 'ENABLE_BLOCKED_VIDEO_PLACEHOLDER': 0, 'VERSION_HASH': '9abbcf9aa7', 'SITE_NAME': 'devsite', 'HISTORY_ENABLED': 1, 'ENABLE_BLOCKED_LINK_TOOLTIP': 0, 'ALLOWED_HOSTS': ['.android.com', '.anvato.com', '.apigee.com', '.appspot.com', '.dialogflow.com', '.gonglchuangl.net', '.google.cn', '.google.com', '.googleplex.com', '.nest.com', '.openthread.io', '.openweave.io', '.orbitera.com', '.tensorflow.org'], 'BLOCK_RSS_FEEDS': 0, 'SCRIPTSAFE_DOMAIN': 'google-developers.appspot.com', 'VTAGS_ENABLED': 0},
+                               '[]','en',
+                               true, '',
+                               {"f62218c009ec029abef196bba5aa34cf": true, "8de7a048f21618359bd37f5ce44be073": false, "098dafe57affddc137df300142652cfd": false, "8e03e230de0bd8a6fe173fdf172e8b3f": true, "cb025a64a50094835616312f4774a53d": true, "51470233c56fc1fde50f00b73c52b216": false, "d169d485cf24243a263783dbe42029b1": true, "039e5d84b87fd75807ffb37b7f1bbf2c": true, "752953480de00a336d911a46966cc16d": false, "700def1a83e356c06c0925afb05de4b0": false, "6749dcb526ce9bde6993550c7d928d24": true}, '/machine-learning/crash-course/',
+                               'https://developers.google.com/');
+        })(jQuery);
+
+        
+        devsite.localInit = function() {
+          
+        };
+
+      </script><script>
+      $('.devsite-utility-footer-language-select').each(function() {
+        $(this).change(function(){$('.devsite-utility-footer-language').submit();});
+      });
+      </script><script async defer src="//survey.g.doubleclick.net/async_survey?site=paewx4mdhuzny4k5rewdgkq2cy"></script></div><span id="devsite-request-elapsed" data-request-elapsed="230.530023575"></span></body></html>

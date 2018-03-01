@@ -1,7 +1,9 @@
 #!/usr/bin/env python
-from requests_html import HTMLSession
 import os
 import ssl
+import time
+
+from requests_html import HTMLSession
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
@@ -45,6 +47,6 @@ if __name__ == '__main__':
             saveHtml(filename, html)
             print(next_url)
         except:
-            sleep(5)
+            time.sleep(5)
             print("Was a nice sleep, now let me continue...")
             continue
